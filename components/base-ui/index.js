@@ -1,9 +1,9 @@
 /**
  * -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
- * Config - font
+ * UI - index
  * -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
  */
-export default {
-  systemRegular: 'Heebo',
-  systemBold: 'Heebo_Bold',
-}
+
+export { default as Container } from './Container'
+export { default as Icon } from './Icon'
+

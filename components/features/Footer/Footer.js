@@ -2,30 +2,53 @@ import React from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import styled from 'styled-components'
+import colors from '<Styles>/colors'
 
+import { Container , Icon } from '<UI>'
+import fonts from '<Styles>/fonts'
+
+const orangeLight = colors.orangeLight
+const text = colors.textGray
 
 const Footer = ({ lastIssue }) => {
   return (
+
+    <FooterWrapper>
+
+    <FooterContainerInfo>
+      <ContainerInfo>
+          <Info>INFO</Info>
+      </ContainerInfo>
+    </FooterContainerInfo>
+
     <FooterContainer>
-     fsldkjflsdk
+      <ContainerStyled>
+        <CopyrighAndIcon>
+          <Icon name="toplap-logo" className="toplap-logo"/>
+          <Copyright>
+            For the love of Coding, Copyright © 2018 | Livecoding Festival, UK
+          </Copyright>
+        </CopyrighAndIcon>
+      </ContainerStyled>
     </FooterContainer>
+    </FooterWrapper>
   )
 }
 
 export default Footer
 
-// const PolicyText = styled.span`
-//   .no-touch &:hover,
-//   .touch &.touch {
-//     text-decoration: underline;
-//   }
-// `
+const FooterWrapper = styled.div`
+  display: flex;
+`
 
 const FooterContainer = styled.div`
-  min-height: 210px;
-  padding: 20px 0;
-  background-color: green;
-  color: white;
+  height: 40px;
+  padding: 12px 0;
+  background-color: ${orangeLight};
+  border-top: 2px solid black;
+  color: black;
+  display: flex;
+  width: 100%;
 
   @media (max-width: 991px) {
     padding-bottom: 50px;
@@ -37,116 +60,88 @@ const FooterContainer = styled.div`
   }
 `
 
-// const ContainerStyled = styled(Container)`
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   width: 100%;
-//   height: 100%;
+const FooterContainerInfo = styled.div`
+  height: 40px;
+  padding: 12px 0;
+  background-color: ${orangeLight};
+  border-top: 2px solid black;
+  border-right: 2px solid black;
+  color: black;
+  display: flex;
+  width: 20vw;
 
-//   @media (max-width: 991px) {
-//     width: 530px;
-//   }
+  @media (max-width: 991px) {
+    padding-bottom: 50px;
+  }
 
-//   @media (max-width: 767px) {
-//     width: 100%;
-//   }
-// `
+  @media (max-width: 767px) {
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+`
 
-// const Socials = styled.div`
-//   margin: 0 auto;
-//   display: flex;
-//   justify-content: center;
-// `
+const ContainerStyled = styled(Container)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 70%;
+  height: 100%;
 
-// const Social = styled.a`
-//   margin-right: 30px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   width: 50px;
-//   height: 50px;
-//   color: white;
-//   text-decoration: none;
+  @media (max-width: 991px) {
+    width: 530px;
+  }
 
-//   &:last-child { margin-right: 0; }
-// `
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  .toplap-logo{
+    display: flex;
+    font-size: 40px;
+  }
+`
 
-// const Divider = styled.div`
-//   margin: 10px 0;
-//   width: 100%;
-//   max-width: 900px;
-//   height: 1px;
-//   background-color: #4a4a4a;
-//   position: relative;
-//   left: -47px;
+const Copyright = styled.p`
+  margin: 0;
+  font-size: 12px;
+  font-family: ${ fonts.systemRegular};
+  color: ${text};
+  margin-left: auto;
 
-//   @media (max-width: 991px) {
-//     left: 0;
-//   }
-// `
+  @media (max-width: 991px) {
+    line-height: 1.8em;
+  }
+`
+const CopyrighAndIcon = styled.div`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`
 
-// const Navs = styled.div`
-//   margin-top: 15px;
-//   margin-bottom: 65px;
-//   display: flex;
-//   justify-content: center;
+const ContainerInfo = styled(Container)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  
 
-//   @media (max-width: 991px) {
-//     position: relative;
-//     display: block;
-//     width: 100%;
-//   }
-// `
+  @media (max-width: 991px) {
+    width: 530px;
+  }
 
-// const Nav = styled.div`
-//   margin-left: 80px;
-//   font-family: ${fonts.thaiBold};
-//   font-size: 12px;
-//   letter-spacing: 2px;
-//   color: white;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  .toplap-logo{
+    display: flex;
+    font-size: 40px;
+  }
+`
 
-//   a {
-//     color: inherit;
-//     text-decoration: none;
-//   }
-
-//   &:first-child { margin-left: 0; }
-
-//   @media (max-width: 991px) {
-//     margin-left: 0;
-//     padding: 10px 0;
-//     margin-bottom: 5px;
-//   }
-// `
-
-// const Copyright = styled.p`
-//   margin: 0;
-//   font-family: ${fonts.thaiRegular};
-//   font-size: 12px;
-//   color: ${colors.textGrayLight};
-//   letter-spacing: 1px;
-
-//   @media (max-width: 991px) {
-//     line-height: 1.8em;
-//   }
-// `
-
-// const IssueThumnail = styled.a`
-//   display: block;
-//   position: absolute;
-//   top: -30px;
-//   right: 25px;
-//   text-decoration: none;
-//   width: 90px;
-//   height: 125px;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: center;
-
-//   @media (max-width: 991px) {
-//     top: 0;
-//     right: 0;
-//   }
-// `
+const Info = styled.p`
+  margin: 0;
+  font-size: 14px;
+  font-family: ${ fonts.systemRegular};
+  color: ${text};
+`

@@ -35,7 +35,9 @@ export default class Main extends Component {
           <script defer src='/static/scripts/html-touch-class.js' />
           <script defer src='/static/scripts/detected-mobile-devices.js' />
 
+          <link href="https://fonts.googleapis.com/css?family=Heebo:100,400,700,900" rel="stylesheet"/>
           <link rel='stylesheet' type='text/css' href='/static/styles/normalize.css' />
+          <link rel='stylesheet' type='text/css' href='/static/fonts/icons-livecoding/style.css' />
         </Head>
 
         <Header/>
