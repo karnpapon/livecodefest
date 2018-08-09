@@ -3,6 +3,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 import styled from 'styled-components'
+import fonts from '<Styles>/fonts'
 
 class Header extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class Header extends React.Component {
   render () {
     return (
       <HeaderContainer >
-       sjflksdjf
+       <HeaderText>INFO</HeaderText>
       </HeaderContainer>
     )
   }
@@ -30,9 +31,16 @@ const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  width: 40px;
+  height: 100%;
   border-bottom: 1px solid black;
   background-color: white;
   transition: .3s;
-  opacity: 0.2;
+  border-right: 2px solid black;
+`
+
+const HeaderText = styled.div`
+  font-family: ${ fonts.systemRegular};
+  font-size: 12px;
+  transform: rotate(-90deg);
 `

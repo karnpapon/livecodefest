@@ -16,7 +16,7 @@ const Footer = ({ lastIssue }) => {
     <GridWrapper>
 
       <GridContainer>
-        { [0,1,2,3,4,5].map(item => <GridColumn/>)}
+        { [0,1,2,3,4,5,6,7].map(( item , i) => <GridColumn key={i}/>)}
      
       </GridContainer>
     </GridWrapper>
@@ -30,7 +30,7 @@ const GridWrapper = styled.div`
   width: 100%;
   height: 100vh;
   position: absolute;
-  opacity: 0.2;
+  opacity: 0.1;
   z-index: 999;
 `
 
@@ -40,7 +40,7 @@ const GridContainer = styled.div`
   color: black;
   display: flex;
   width: 100%;
-  justify-content: center;
+  padding: 0 130px;
 
   @media (max-width: 991px) {
     padding-bottom: 50px;
@@ -53,7 +53,7 @@ const GridContainer = styled.div`
 `
 
 const GridColumn = styled.div`
-  width: 130px;
+  width: 100%;
   background: black;
-  margin-left: 20px;
+  margin-right: 20px;
 `
