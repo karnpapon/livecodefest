@@ -2,6 +2,12 @@ import React from 'react';
 import Main from '<Layouts>/main'
 import styled from 'styled-components'
 import colors from '<Styles>/colors'
+import Grid from '<Features>/Grid'
+
+import Programme from './programme'
+import Accomodation from './accomodation';
+import ContactAndCommunity from './contactCommunity';
+import CollabAndSponsor from './collabAndSponsor';
 
 const primaryBackground = colors.primary
 
@@ -15,9 +21,14 @@ class Index extends React.Component {
 
     return (
       <Main>
+        <Grid/>
         <MainBackground>
           Livecoding Festival London 
         </MainBackground>
+        <Programme/>
+        <Accomodation/>
+        <ContactAndCommunity/>
+        <CollabAndSponsor/>
       </Main> 
     )
   }

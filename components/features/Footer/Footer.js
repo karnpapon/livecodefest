@@ -85,7 +85,7 @@ const ContainerStyled = styled(Container)`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 70%;
+  /* width: 70%; */
   height: 100%;
 
   @media (max-width: 991px) {

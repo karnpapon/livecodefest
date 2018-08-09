@@ -34,4 +34,5 @@ const HeaderContainer = styled.div`
   border-bottom: 1px solid black;
   background-color: white;
   transition: .3s;
+  opacity: 0.2;
 `
