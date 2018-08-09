@@ -6,6 +6,7 @@ import Grid from '<Features>/Grid'
 import fonts from '<Styles>/fonts'
 
 const primaryBackground = colors.primary
+const orangeDark = colors.orangeDark
 const sectionText = fonts.sectionText
 
 class Accomodation extends React.Component {
@@ -56,7 +57,6 @@ export default Accomodation;
 const MainBackground = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
   background-color: ${ primaryBackground};
 `
 const AccomodationWrapper = styled.div`
@@ -64,7 +64,17 @@ const AccomodationWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   padding: 100px 130px;
-  padding-bottom: 20px;
+  padding-bottom: 0px;
+
+  &::after{
+    content: '';
+    bottom: -9px;
+    right: 0;
+    left: 17px;
+    height: 2px;
+    background-color: black;
+    margin-top: 50px;
+  }
 `
 
 const SectionHeader = styled.p`
@@ -87,4 +97,8 @@ const Transportation = styled.div`
 `
 const TransportDetails = styled.p`
   text-decoration: underline;
+  cursor: pointer;
+  &:hover{
+    color: ${ orangeDark };
+  }
 `

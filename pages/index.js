@@ -77,7 +77,7 @@ export default Index;
 const MainBackground = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
+  height: 130vh;
   background-color: ${ primaryBackground};
   flex-direction: column;
   .toplap-logo{
