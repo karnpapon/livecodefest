@@ -35,6 +35,12 @@ class ContactAndCommunity extends React.Component {
 
             <MailWrapper>
               <Email> Join </Email>
+              <HashtagWrapper> 
+                <Hashtag>#livecodefest</Hashtag>
+                <IconWrapper>
+                  <Icon name="arrow" className="hashtag-arrow"/>
+                </IconWrapper>
+              </HashtagWrapper>
               <ChannelDetails> Channel on 
                 <ChannelGroup> talk.lurk.org </ChannelGroup>
               </ChannelDetails>
@@ -125,3 +131,35 @@ const MailDetails = styled.p`
 
 `
 
+const HashtagWrapper = styled.div`
+  width: 100%;
+  height: 72px;
+  border: 2px solid black;
+  background: white;
+  margin-top: 10px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+`
+
+const Hashtag = styled.p`
+  font-size: 30px;
+  font-weight: bolder;
+  margin: auto;
+`
+
+const IconWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .15s;
+  cursor: pointer;
+    &:hover{
+      background: ${ orangeDark }
+    }
+`

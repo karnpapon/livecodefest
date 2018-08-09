@@ -5,6 +5,7 @@ import colors from '<Styles>/colors'
 import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import CardDetails from '<Features>/CardDetails';
+import CardDesc from '<Features>/CardDesc';
 
 const primaryBackground = colors.primary
 const sectionText = fonts.sectionText
@@ -28,6 +29,7 @@ class Programme extends React.Component {
               )
             }
           </CardWrapper>
+          <CardDesc/>
         </ProgrammeWrapper>
       </MainBackground>
     )
@@ -48,6 +50,7 @@ const MainBackground = styled.div`
 const SectionHeader = styled.p`
   font-family: ${ fonts.systemRegular};
   font-size: ${ sectionText };
+  font-weight: bolder;
   margin-left: 130px;
 `
 

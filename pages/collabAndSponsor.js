@@ -59,6 +59,7 @@ const ContactWrapper = styled.div`
 const SectionHeader = styled.p`
   font-family: ${ fonts.systemRegular};
   font-size: ${sectionText};
+  font-weight: bolder;
   padding-left: 130px;
 `
 

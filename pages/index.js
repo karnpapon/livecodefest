@@ -11,8 +11,10 @@ import Programme from './programme'
 import Accomodation from './accomodation';
 import ContactAndCommunity from './contactCommunity';
 import CollabAndSponsor from './collabAndSponsor';
+import Info from '<Features>/Info'
 
 const primaryBackground = colors.primary
+const orangeDark = colors.orangeDark
 
 class Index extends React.Component {
   static async getInitialProps ({ query, res }) {
@@ -28,10 +30,17 @@ class Index extends React.Component {
 
 
         <MainBackground>
+
+          <Info/>
+          <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
+            <IconWrapper>
+              <Icon name="arrow-down" className="hashtag-arrow" />
+            </IconWrapper> 
+          </TitleImg>
+ 
           <SectionHeader>
             <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-            Livecoding <br/>
-            Festival  
+            Livecoding Festival  
           </SectionHeader>
           <EventDate>
             1 - 3rd September 2018 <br/>
@@ -77,9 +86,10 @@ export default Index;
 const MainBackground = styled.div`
   display: flex;
   width: 100%;
-  height: 130vh;
+  height: 140vh;
   background-color: ${ primaryBackground};
   flex-direction: column;
+  justify-content: center;
   .toplap-logo{
     font-size: 60px;
   }
@@ -89,6 +99,7 @@ const MainBackground = styled.div`
 const SectionHeader = styled.div`
   font-family: ${ fonts.systemRegular};
   font-size: 60px;
+  font-weight: bolder;
   padding-left: 130px;
   display: flex;
   flex-direction: column;
@@ -114,8 +125,11 @@ const EventDesc = styled.div`
 const EventPromo = styled.div`
   font-family: ${ fonts.systemRegular};
   font-size: 42px;
+  font-weight: bolder;
   padding-left: 130px; 
   margin-top: auto;
+  margin-top: 54px;
+  margin-bottom: 50px;
 `
 
 const PolicyText = styled.span`
@@ -151,4 +165,44 @@ const IconHeader = styled.div`
     top: auto;
     margin: 0 auto;
   }
+`
+
+
+const TitleImg = styled.div`
+    position: absolute;
+    margin-bottom: 25px;
+    border: 2px solid black;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 200px;
+    height: 200px;
+    align-self: center;
+    justify-content: flex-end;
+    align-items: flex-end;
+    display: flex;
+    margin-top: -8%;
+
+  @media (max-width: 767px) {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 auto;
+  }
+`
+
+const IconWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .15s;
+  cursor: pointer;
+    &:hover{
+      background: ${ orangeDark }
+    }
 `

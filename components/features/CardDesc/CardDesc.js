@@ -10,7 +10,7 @@ import { Icon } from '<UI>'
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
 
-class CardDetails extends React.Component {
+class CardDesc extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -19,40 +19,44 @@ class CardDetails extends React.Component {
   render() {
     return (
       <CardWrapper>
-        <HeaderContainer >
-          <HeaderText> 
-            <DateInfo> 1 September 2018, 11 am - 4 pm</DateInfo>
-            <TitleInfo>Beginners' Workshop</TitleInfo>
-            <DescInfo>For Women and Non-Binary people</DescInfo>
-            <AvenueInfo>
-              <Icon name="location" className="location"/>
-              Access Space Labs
-            </AvenueInfo>
-          </HeaderText>
-        </HeaderContainer>
+
         <InfoWrapper>
           <TicketInfo>
-            <Icon name="arrow" className="ticket-icon" />
-            Sign up here
+            Who's in ?
           </TicketInfo>
-          <MoreInfo>
-            <Icon name="arrow-down" />
-          </MoreInfo>
         </InfoWrapper>
+
+        <HeaderContainer >
+          <ProfileWrapper>
+            { [0,1,2].map( ( item , index) => (
+              <PeopleWrapper>
+                <PeopleProfile>
+                  <IconWrapper>
+                    <Icon name="arrow" className="hashtag-arrow" />
+                  </IconWrapper> 
+                </PeopleProfile>
+                <DateInfo> CARD DESC </DateInfo>
+              </PeopleWrapper>
+            )) 
+          }
+          </ProfileWrapper>
+        </HeaderContainer>
+
       </CardWrapper>
     )
   }
 }
 
-export default withRouter(CardDetails)
+export default withRouter(CardDesc)
 
 const CardWrapper = styled.div`
- width: 487px;
-  height: 252px;
+ width: 340px;
+  height: 185px;
   display: flex;
   margin-left: 130px;
   flex-direction: column;
   margin-bottom: 20px;
+  position: absolute;
   :nth-child(2){ margin-left: auto; margin-right: 10%;}
   :nth-child(3){ margin-left: auto; margin-right: 20%;}
   :nth-child(4){ margin-left: auto; margin-right: 26%;}
@@ -61,7 +65,7 @@ const CardWrapper = styled.div`
 const HeaderContainer = styled.div`
   width: 100%;
   height: 100%;
-  background: ${ orangeLight};
+  background: ${ orangeDark};
   display: flex;
   border: 2px solid black;
   flex-direction: column;
@@ -70,13 +74,14 @@ const HeaderContainer = styled.div`
   align-items: center;
 `
 
-const HeaderText = styled.div`
+const ProfileWrapper = styled.div`
   height: 100%;
+  width: 100%;
   font-family: ${ fonts.systemRegular};
   font-size: 12px;
   justify-content: center;
   display: flex;
-  flex-direction: column;
+  padding: 20px 10px;
   .location{
     padding-right: 5px;
   }
@@ -86,15 +91,15 @@ const TicketInfo = styled.div`
   font-family: ${ fonts.systemRegular};
   font-size: 12px;
   font-weight: bolder;
-  padding: 12px 0;
-  background-color: ${orangeLight};
-  border-bottom: 2px solid black;
+  align-items: center;
+  background-color: ${orangeDark};
+  border-top: 2px solid black;
   border-left: 2px solid black;
   border-right: 2px solid black;
   color: black;
   display: flex;
   width: 100%;
-  justify-content: center;
+  padding-left: 10px;
 
   @media (max-width: 991px) {
     padding-bottom: 50px;
@@ -107,9 +112,9 @@ const TicketInfo = styled.div`
 `
 
 const MoreInfo = styled.div`
-  padding: 12px 0;
-  background-color: ${orangeLight};
-  border-bottom: 2px solid black;
+
+  background-color: ${orangeDark};
+  border-top: 2px solid black;
   border-right: 2px solid black;
   color: black;
   display: flex;
@@ -122,11 +127,15 @@ const MoreInfo = styled.div`
     cursor: pointer;
     background: ${orangeDark};
   }
+
+  .arrow-down{
+    align-self: center;
+  }
 `
 
 const InfoWrapper = styled.div`
  display: flex;
- height: 45px;
+ height: 25px;
 
  .ticket-icon{
    padding-right: 10px;
@@ -136,6 +145,12 @@ const InfoWrapper = styled.div`
 
 const DateInfo = styled.p`
   font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: .15s;
+  &:hover{
+    color: ${orangeLight};
+  }
 `
 
 const TitleInfo = styled.p`
@@ -150,4 +165,47 @@ const DescInfo = styled.p`
 
 const AvenueInfo = styled.p`
   font-size: 12px;
+`
+
+const PeopleProfile = styled.div`
+  width: 100%;
+  height: 100%;
+  border: 2px solid black;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  align-self: center;
+  justify-content: flex-end;
+  align-items: flex-end;
+  display: flex;
+
+  @media (max-width: 767px) {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 auto;
+  }
+`
+
+const IconWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .15s;
+  cursor: pointer;
+    &:hover{
+      background: ${ orangeDark}
+    }
+`
+
+
+const PeopleWrapper = styled.div`
+  width: 100%;
+  height: 80%;
+  :nth-child(even){ margin-right: 10px; margin-left: 10px; }
 `

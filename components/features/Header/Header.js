@@ -42,5 +42,6 @@ const HeaderContainer = styled.div`
 const HeaderText = styled.div`
   font-family: ${ fonts.systemRegular};
   font-size: 12px;
+  font-weight: bolder;
   transform: rotate(-90deg);
 `

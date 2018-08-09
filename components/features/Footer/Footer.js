@@ -26,7 +26,7 @@ const Footer = ({ lastIssue }) => {
         <CopyrighAndIcon>
           <Icon name="toplap-logo" className="toplap-logo"/>
           <Copyright>
-            For the love of Coding, Copyright © 2018 | Livecoding Festival, UK
+            For the love of Coding, Copyright © 2018 | Livecoding Festival
           </Copyright>
         </CopyrighAndIcon>
       </ContainerStyled>
@@ -98,6 +98,7 @@ const ContainerStyled = styled(Container)`
   .toplap-logo{
     display: flex;
     font-size: 40px;
+    padding-left: 20px;
   }
 `
 
@@ -105,7 +106,7 @@ const Copyright = styled.p`
   margin: 0;
   font-size: 12px;
   font-family: ${ fonts.systemRegular};
-  color: ${text};
+  color: black;
   margin-left: auto;
 
   @media (max-width: 991px) {
@@ -133,15 +134,12 @@ const ContainerInfo = styled(Container)`
   @media (max-width: 767px) {
     width: 100%;
   }
-  .toplap-logo{
-    display: flex;
-    font-size: 40px;
-  }
 `
 
 const Info = styled.p`
   margin: 0;
   font-size: 14px;
   font-family: ${ fonts.systemRegular};
-  color: ${text};
+  font-weight: bolder;
+  color: black;
 `
