@@ -28,7 +28,7 @@ class CardDesc extends React.Component {
 
         <HeaderContainer >
           <ProfileWrapper>
-            { [0,1,2].map( ( item , index) => (
+            { [0,1,2,3,4,5,6].map( ( item , index) => (
               <PeopleWrapper>
                 <PeopleProfile>
                   <IconWrapper>
@@ -64,7 +64,7 @@ const CardWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: auto;
   background: ${ orangeDark};
   display: flex;
   border: 2px solid black;
@@ -75,8 +75,9 @@ const HeaderContainer = styled.div`
 `
 
 const ProfileWrapper = styled.div`
-  height: 100%;
+  height: auto; 
   width: 100%;
+  flex-wrap: wrap;
   font-family: ${ fonts.systemRegular};
   font-size: 12px;
   justify-content: center;
@@ -205,7 +206,6 @@ const IconWrapper = styled.div`
 
 
 const PeopleWrapper = styled.div`
-  width: 100%;
-  height: 80%;
+
   :nth-child(even){ margin-right: 10px; margin-left: 10px; }
 `

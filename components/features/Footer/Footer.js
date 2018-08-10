@@ -5,40 +5,68 @@ import styled from 'styled-components'
 import colors from '<Styles>/colors'
 
 import { Container , Icon } from '<UI>'
+import Info from '<Features>/Info'
 import fonts from '<Styles>/fonts'
 
 const orangeLight = colors.orangeLight
+const orangeDark = colors.orangeDark
 const text = colors.textGray
 
-const Footer = ({ lastIssue }) => {
-  return (
+class Footer extends React.Component {
 
-    <FooterWrapper>
+  render(){
+    const { show, setInfoShow, setInfoHide } = this.props
 
-    <FooterContainerInfo>
-      <ContainerInfo>
-          <Info>INFO</Info>
-      </ContainerInfo>
-    </FooterContainerInfo>
+    return (
+  
+      <FooterWrapper>
 
-    <FooterContainer>
-      <ContainerStyled>
-        <CopyrighAndIcon>
-          <Icon name="toplap-logo" className="toplap-logo"/>
-          <Copyright>
-            For the love of Coding, Copyright © 2018 | Livecoding Festival
-          </Copyright>
-        </CopyrighAndIcon>
-      </ContainerStyled>
-    </FooterContainer>
-    </FooterWrapper>
-  )
+  
+        <FooterContainerInfo>
+            <Info show={show} />
+          {
+            !show ?
+              (<GoBackBtn onClick={setInfoShow}> INFO </GoBackBtn>) :
+              (<GoBackBtn onClick={setInfoHide} > BACK </GoBackBtn>)
+          }
+        </FooterContainerInfo>
+  
+      <FooterContainer>
+        <ContainerStyled>
+          <CopyrighAndIcon>
+            <Icon name="toplap-logo" className="toplap-logo"/>
+            <Copyright>
+              For the love of Coding | Livecode Festival, 2018
+            </Copyright>
+          </CopyrighAndIcon>
+        </ContainerStyled>
+      </FooterContainer>
+      </FooterWrapper>
+      
+    )
+
+
+  }
 }
 
 export default Footer
 
+
 const FooterWrapper = styled.div`
+  position: fixed;
+  height: 40px;
+  z-index: 999;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: ${ orangeLight} ;
+  border-right: 2px solid black;
+  transition: .15s;
+  padding: 12px 0;
+  bottom: 0;
+
+  
 `
 
 const FooterContainer = styled.div`
@@ -50,14 +78,14 @@ const FooterContainer = styled.div`
   display: flex;
   width: 100%;
 
-  @media (max-width: 991px) {
-    padding-bottom: 50px;
-  }
+   @media (max-width: 991px) {
+     padding-bottom: 50px;
+   }
 
-  @media (max-width: 767px) {
-    padding-top: 10px;
-    padding-bottom: 30px;
-  }
+   @media (max-width: 767px) {
+     padding-top: 10px;
+     padding-bottom: 30px;
+   }
 `
 
 const FooterContainerInfo = styled.div`
@@ -70,6 +98,13 @@ const FooterContainerInfo = styled.div`
   display: flex;
   width: 20vw;
 
+  cursor: pointer;
+  .no-touch &:hover,
+  .touch &.touch {
+    color: black;
+    background: ${ orangeDark};
+  }
+
   @media (max-width: 991px) {
     padding-bottom: 50px;
   }
@@ -81,7 +116,7 @@ const FooterContainerInfo = styled.div`
 `
 
 const ContainerStyled = styled(Container)`
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -136,10 +171,20 @@ const ContainerInfo = styled(Container)`
   }
 `
 
-const Info = styled.p`
-  margin: 0;
-  font-size: 14px;
+const GoBackBtn = styled.div`
   font-family: ${ fonts.systemRegular};
+  font-size: 12px;
   font-weight: bolder;
-  color: black;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  transition: .15s;
+
+   cursor: pointer;
+  .no-touch &:hover,
+  .touch &.touch {
+    color: black;
+    background: ${ orangeDark};
+  }
 `

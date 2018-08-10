@@ -4,7 +4,7 @@ import Router from 'next/router'
 import styled, { injectGlobal } from 'styled-components'
 
 import colors from '<Styles>/colors'
-import Header from '<Features>/Header'
+// import Header from '<Features>/Header'
 import Footer from '<Features>/Footer'
 
 
@@ -40,11 +40,10 @@ export default class Main extends Component {
           <link rel='stylesheet' type='text/css' href='/static/fonts/icons-livecoding/style.css' />
         </Head>
 
-        <Header/>
+        {/* <Header/> */}
 
         {children}
 
-      <Footer/>
       </MainContainerStyled>
     )
   }

@@ -16,6 +16,7 @@
           "<Features>": "./components/features",
           "<Helpers>": "./helpers",
           "<Configs>": "./configs",
+          "<DATA>": "./data"
         }
       }
     ],

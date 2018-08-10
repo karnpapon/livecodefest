@@ -24,24 +24,26 @@ class Accomodation extends React.Component {
           <SectionHeader>ACCOMODATION</SectionHeader>
           <TransportWrapper>
             <Transportation> Coach </Transportation>
-            <TransportDetails> Megabus / National express</TransportDetails>
+            <TransportDetails> 
+              <a target="_blank" href="https://uk.megabus.com">Megabus / </a><a target="_blank" href="http://www.nationalexpress.com">National express</a>
+            </TransportDetails>
 
             <Transportation> Train </Transportation>
             <TransportDetails> 
-              GWR / trainline
+              <a target="_blank" href="https://www.gwr.com">GWR /</a> <a target="_blank" href="https://www.thetrainline.com"> trainline</a>
             </TransportDetails>
             <TransportDetails>  
-              Megabus have some cheaper train fares from e.g. London.
+              <a target="_blank" href="https://uk.megabus.com"> Megabus have some cheaper train fares from e.g. London.</a>
             </TransportDetails>
 
             <Transportation> Nearest airports </Transportation>
-            <TransportDetails> 
-              Manchester, Doncaster, Leeds Bradford, 
+            <NearestAirport> 
+              Manchester, Doncaster, Leeds Bradford,
               East Midlands, Birmingham and London.
-            </TransportDetails>
+            </NearestAirport>
 
-            <Transportation> Hotels/hostels/rooms </Transportation>
-            <TransportDetails> booking.com / airbnb</TransportDetails>
+            <Transportation> Hotels/hostels/rooms</Transportation>
+            <TransportDetails><a target="_blank" href="http://www.booking.com/searchresults.html?city=-2607573&aid=1357706&checkin_monthday=8&checkin_month=11&checkin_year=2017&checkout_monthday=13&checkout_month=11&checkout_year=2017&no_rooms=1&group_adults=1">booking.com </a> / <a target="_blank" href="https://http://airbnb.com"> airbnb</a></TransportDetails>
 
 
           </TransportWrapper>
@@ -99,7 +101,14 @@ const Transportation = styled.div`
 const TransportDetails = styled.p`
   text-decoration: underline;
   cursor: pointer;
-  &:hover{
+  a{
+    color: black;
+  }
+  a:hover{
     color: ${ orangeDark };
   }
+`
+
+const NearestAirport = styled.p`
+ text-decoration: underline;
 `

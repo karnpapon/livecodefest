@@ -12,6 +12,8 @@ import Accomodation from './accomodation';
 import ContactAndCommunity from './contactCommunity';
 import CollabAndSponsor from './collabAndSponsor';
 import Info from '<Features>/Info'
+import Header from '<Features>/Header'
+import Footer from '<Features>/Footer'
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
@@ -21,17 +23,36 @@ class Index extends React.Component {
     return true
   }
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      show: false
+    }
+  }
+
+  setInfoShow = () => {
+    this.setState({ show: true })
+  }
+  setInfoHide = () => {
+    this.setState({ show: false })
+  }
+ 
 
   render () {
+
+    const { show } = this.state
+    const { setInfoHide, setInfoShow } = this
 
     return (
       <Main>
         {/* <Grid/> */}
 
+        {/* <Header setInfoShow={ setInfoShow }/> */}
+        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show}/>
 
         <MainBackground>
 
-          <Info/>
+          {/* <Info show={show}/> */}
           <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
             <IconWrapper>
               <Icon name="arrow-down" className="hashtag-arrow" />
@@ -40,7 +61,7 @@ class Index extends React.Component {
  
           <SectionHeader>
             <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-            Livecoding Festival  
+            Livecode Festival  
           </SectionHeader>
           <EventDate>
             1 - 3rd September 2018 <br/>
@@ -51,7 +72,7 @@ class Index extends React.Component {
             <VerticalLine/>
             <DescWrapper>
               Sheffield hosted 
-              <a href="https://web.archive.org/web/20160409053149/http://livecode.access-space.org">
+              <a target="_blank" href="https://web.archive.org/web/20160409053149/http://livecode.access-space.org">
                 <PolicyText className="button">
                   the first livecode fest in 2007, 
                 </PolicyText>
@@ -135,6 +156,7 @@ const EventPromo = styled.div`
 const PolicyText = styled.span`
   padding-left: 5px;
   text-decoration: underline;
+  color: black;
 `
 
 const VerticalLine = styled.div`

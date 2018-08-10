@@ -6,6 +6,7 @@ import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import CardDetails from '<Features>/CardDetails';
 import CardDesc from '<Features>/CardDesc';
+import { dataEvent } from '<DATA>/event'
 
 const primaryBackground = colors.primary
 const sectionText = fonts.sectionText
@@ -18,14 +19,16 @@ class Programme extends React.Component {
 
   render() {
 
+    console.log("dataEvents", dataEvent)
+
     return (
       <MainBackground>
         {/* <Grid/> */}
         <ProgrammeWrapper>
           <SectionHeader>PROGRAMME</SectionHeader>
           <CardWrapper>
-            { [0,1,2,3].map((item, index) => 
-                <CardDetails key={index}/> 
+            { dataEvent.map((item, index) => 
+                <CardDetails eventInfo={item} key={index} seemore={ item.slug ==  'toplab-moot' || item.slug == 'algorave' ? true: false}/> 
               )
             }
           </CardWrapper>

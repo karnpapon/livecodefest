@@ -6,6 +6,7 @@ import styled from 'styled-components'
 import fonts from '<Styles>/fonts'
 import colors from '<Styles>/colors'
 import { Icon } from '<UI>'
+import { Collapse } from 'react-collapse';
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
@@ -13,32 +14,71 @@ const orangeDark = colors.orangeDark
 class CardDetails extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isOpen: false,
+    }
   }
 
+  setCardOpen = () => {
+    this.setState({ isOpen: true})
+  }
+
+  setCardClose = () => {
+    this.setState({ isOpen: false})
+  }
 
   render() {
+
+    const { setCardClose, setCardOpen } = this
+    const { isOpen } = this.state
+    const { eventInfo, seemore } = this.props
+    const { date, title, description, detail, location, booking, locationDetail } = eventInfo
+
+    console.log("see more l", this.props.seemore)
+
     return (
       <CardWrapper>
-        <HeaderContainer >
-          <HeaderText> 
-            <DateInfo> 1 September 2018, 11 am - 4 pm</DateInfo>
-            <TitleInfo>Beginners' Workshop</TitleInfo>
-            <DescInfo>For Women and Non-Binary people</DescInfo>
-            <AvenueInfo>
-              <Icon name="location" className="location"/>
-              Access Space Labs
-            </AvenueInfo>
-          </HeaderText>
-        </HeaderContainer>
-        <InfoWrapper>
-          <TicketInfo>
-            <Icon name="arrow" className="ticket-icon" />
-            Sign up here
-          </TicketInfo>
-          <MoreInfo>
-            <Icon name="arrow-down" />
-          </MoreInfo>
-        </InfoWrapper>
+          <HeaderContainer >
+            <HeaderText> 
+              <DateInfo> { date } </DateInfo>
+              <TitleInfo> { title} </TitleInfo>
+              <DescInfo>{ description }</DescInfo>
+              <Collapse isOpened={isOpen} springConfig={{ stiffness: 240}}>
+                <DescInfoCollapsed>{ detail}</DescInfoCollapsed>
+              {seemore ? (
+                <HashtagWrapper>
+                  <Hashtag>see more</Hashtag>
+                  <IconWrapper>
+                    <Icon name="arrow" className="hashtag-arrow" />
+                  </IconWrapper>
+                </HashtagWrapper>
+              ) : ''
+              }
+
+              </Collapse>
+              <AvenueInfo>
+                <Icon name="location" className="location"/>
+                { location }
+                <LocationDetail>{ locationDetail } </LocationDetail>
+              </AvenueInfo>
+            </HeaderText>
+          </HeaderContainer>
+
+          <InfoWrapper>
+            <TicketInfo>
+              <Icon name="arrow" className="ticket-icon" />
+              { booking }
+            </TicketInfo>
+            { !isOpen ? 
+              ( <MoreInfo isOpen={isOpen} onClick={setCardOpen }>
+                <Icon name="arrow-down" />
+              </MoreInfo> ):
+              (<MoreInfo isOpen={isOpen} onClick={setCardClose}>
+                <Icon name="close-btn" className="close-btn"/>
+              </MoreInfo>) 
+            }
+          </InfoWrapper>
+
       </CardWrapper>
     )
   }
@@ -47,8 +87,8 @@ class CardDetails extends React.Component {
 export default withRouter(CardDetails)
 
 const CardWrapper = styled.div`
- width: 487px;
-  height: 252px;
+  width: 487px;
+  min-height: 252px;
   display: flex;
   margin-left: 130px;
   flex-direction: column;
@@ -71,12 +111,13 @@ const HeaderContainer = styled.div`
 `
 
 const HeaderText = styled.div`
-  height: 100%;
+  height: auto;
   font-family: ${ fonts.systemRegular};
   font-size: 12px;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
   .location{
     padding-right: 5px;
   }
@@ -108,7 +149,7 @@ const TicketInfo = styled.div`
 
 const MoreInfo = styled.div`
   padding: 12px 0;
-  background-color: ${orangeLight};
+  background-color: ${props => props.isOpen ? `${orangeDark}` :`${orangeLight}` };
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   color: black;
@@ -116,8 +157,6 @@ const MoreInfo = styled.div`
   justify-content: center;
   width: 8%;
   transition: .15s;
- 
-  }
   &:hover{
     cursor: pointer;
     background: ${orangeDark};
@@ -126,7 +165,7 @@ const MoreInfo = styled.div`
 
 const InfoWrapper = styled.div`
  display: flex;
- height: 45px;
+ height: 40px;
 
  .ticket-icon{
    padding-right: 10px;
@@ -145,9 +184,54 @@ const TitleInfo = styled.p`
 `
 
 const DescInfo = styled.p`
-  font-size: 12px;
+  font-size: 16px;
+`
+
+const DescInfoCollapsed = styled.div`
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 50px;
+  text-align: left;
 `
 
 const AvenueInfo = styled.p`
   font-size: 12px;
+`
+
+const HashtagWrapper = styled.div`
+  width: 180px;
+  height: 50px;
+  border: 2px solid black;
+  background: ${orangeLight};
+  align-items: flex-end;
+  display: inline-flex;
+`
+
+const Hashtag = styled.p`
+  font-size: 18px;
+  font-weight: bolder;
+  margin: auto;
+  padding-left: 10px;
+`
+
+const IconWrapper = styled.div`
+  width: 20px;
+  height: 20px;
+  background: ${orangeLight};
+  border-left: 2px solid black;
+  border-top: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: .15s;
+  cursor: pointer;
+    &:hover{
+      background: ${ orangeDark}
+    }
+`
+
+
+const LocationDetail = styled.div`
+  padding-top: 10px;
+  padding-bottom: 10px;
 `
