@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
+    <title>ic/ticket</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M10,4 L12,4 L12,5 L10,5 L10,4 Z M5,4 L9,4 L9,5 L5,5 L5,4 Z M2,4 L4,4 L4,5 L2,5 L2,4 Z M3.83333333,1.27272727 C3.49582599,1.27272727 3.22222222,1.55763698 3.22222222,1.90909091 L3.22222222,12.0909091 C3.22222222,12.442363 3.49582599,12.7272727 3.83333333,12.7272727 L11.1666667,12.7272727 C11.504174,12.7272727 11.7777778,12.442363 11.7777778,12.0909091 L11.7777778,1.90909091 C11.7777778,1.55763698 11.504174,1.27272727 11.1666667,1.27272727 L3.83333333,1.27272727 Z M3.83333333,0 L11.1666667,0 C12.1791887,-2.11951668e-16 13,0.854729114 13,1.90909091 L13,12.0909091 C13,13.1452709 12.1791887,14 11.1666667,14 L3.83333333,14 C2.82081129,14 2,13.1452709 2,12.0909091 L2,1.90909091 C2,0.854729114 2.82081129,2.11951668e-16 3.83333333,0 Z" id="path-1"></path>
+    </defs>
+    <g id="ic/ticket" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Rectangle-path" fill="#0E0E0E" fill-rule="nonzero" xlink:href="#path-1"></use>
+    </g>
+</svg>

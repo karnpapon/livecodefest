@@ -6,10 +6,13 @@ import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import CardDetails from '<Features>/CardDetails';
 import CardDesc from '<Features>/CardDesc';
-import { dataEvent } from '<DATA>/event'
+import { dataEvent } from '<DATA>/event';
+import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
 const sectionText = fonts.sectionText
+
+const Element = Scroll.Element;
 
 class Programme extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -19,22 +22,26 @@ class Programme extends React.Component {
 
   render() {
 
-    console.log("dataEvents", dataEvent)
-
     return (
-      <MainBackground>
-        {/* <Grid/> */}
-        <ProgrammeWrapper>
-          <SectionHeader>PROGRAMME</SectionHeader>
-          <CardWrapper>
-            { dataEvent.map((item, index) => 
-                <CardDetails eventInfo={item} key={index} seemore={ item.slug ==  'toplab-moot' || item.slug == 'algorave' ? true: false}/> 
-              )
-            }
-          </CardWrapper>
-          <CardDesc/>
-        </ProgrammeWrapper>
-      </MainBackground>
+      <Element name="programme">
+        <MainBackground>
+          {/* <Grid/> */}
+          <ProgrammeWrapper>
+            <SectionHeader>PROGRAMME</SectionHeader>
+            <CardWrapper>
+              { dataEvent.map((item, index) => 
+                  <CardDetails 
+                    eventInfo={item} 
+                    key={index} 
+                    seemore={ item.slug ==  'toplab-moot' || item.slug == 'algorave' ? true: false}
+                  /> 
+                )
+              }
+            </CardWrapper>
+            {/* <CardDesc/> */}
+          </ProgrammeWrapper>
+        </MainBackground>
+      </Element>
     )
   }
 }

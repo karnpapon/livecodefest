@@ -52,22 +52,22 @@ const dataEvent = [
     booking: 'Tickets now available',
     bookingLink: 'https://tickets.partyforthepeople.org/events/4156-algorave-sheffield',
     testimonial:
-      `The scene at an algorave is often what you\'d expect from any good techno night - 
+      `"The scene at an algorave is often what you\'d expect from any good techno night - 
       a dark room, engaging visuals. a decent, bass-heavy speaker set-up, 
       and lots of people ready to dance. .. performers at algoraves respond to each other 
       and the audience in real time, often projecting the lines of code onto the walls as they type. 
-      lt’s coding as improvisation and experiment..
-      - The Wire magazine
-
-      Live coders write computer programs live, while the programs generate their music, 
-      but the focus is on people dancing and seriously enjoying themselves
-      - Dazed and Confused
-
-      .. not so much a revolution as a de-volution, 
+      lt’s coding as improvisation and experiment.."<br/>
+      <b> - The Wire magazine</b><br/>
+      <br/>
+      "Live coders write computer programs live, while the programs generate their music, 
+      but the focus is on people dancing and seriously enjoying themselves<br/>
+      <b> - Dazed and Confused"</b><br/>
+      <br/>
+      ".. not so much a revolution as a de-volution, 
       a rolling back to the backend of music production, 
       where the possibilities of the encoded information 
-      inside computer software is open and endless
-      - Mixmag
+      inside computer software is open and endless"<br/>
+      <b>- Mixmag</b><br/>
       `,
     detail:
       `Probably the world's first two-room Algorave, 

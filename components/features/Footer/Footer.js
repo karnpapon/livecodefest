@@ -7,10 +7,13 @@ import colors from '<Styles>/colors'
 import { Container , Icon } from '<UI>'
 import Info from '<Features>/Info'
 import fonts from '<Styles>/fonts'
+import Scroll from 'react-scroll'
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
 const text = colors.textGray
+
+const LinkScroll = Scroll.Link;
 
 class Footer extends React.Component {
 
@@ -23,7 +26,7 @@ class Footer extends React.Component {
 
   
         <FooterContainerInfo>
-            <Info show={show} />
+            <Info show={show} setInfoHide={setInfoHide} />
           {
             !show ?
               (<GoBackBtn onClick={setInfoShow}> INFO </GoBackBtn>) :
@@ -34,7 +37,15 @@ class Footer extends React.Component {
       <FooterContainer>
         <ContainerStyled>
           <CopyrighAndIcon>
-            <Icon name="toplap-logo" className="toplap-logo"/>
+            <LinkScroll
+              activeClass="active"
+              to="home"
+              spy={true}
+              smooth={true}
+              duration={250}
+            >
+              <Icon name="toplap-logo" className="toplap-logo"/>
+            </LinkScroll>
             <Copyright>
               For the love of Coding | Livecode Festival, 2018
             </Copyright>

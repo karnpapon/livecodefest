@@ -4,10 +4,13 @@ import styled from 'styled-components'
 import colors from '<Styles>/colors'
 import Grid from '<Features>/Grid'
 import fonts from '<Styles>/fonts'
+import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
 const sectionText = fonts.sectionText
+
+const Element = Scroll.Element;
 
 class Accomodation extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -18,37 +21,39 @@ class Accomodation extends React.Component {
   render() {
 
     return (
-      <MainBackground>
-        {/* <Grid /> */}
-        <AccomodationWrapper>
-          <SectionHeader>ACCOMODATION</SectionHeader>
-          <TransportWrapper>
-            <Transportation> Coach </Transportation>
-            <TransportDetails> 
-              <a target="_blank" href="https://uk.megabus.com">Megabus / </a><a target="_blank" href="http://www.nationalexpress.com">National express</a>
-            </TransportDetails>
+      <Element name="accommodation">
+        <MainBackground>
+          {/* <Grid /> */}
+          <AccomodationWrapper>
+            <SectionHeader>ACCOMODATION</SectionHeader>
+            <TransportWrapper>
+              <Transportation> Coach </Transportation>
+              <TransportDetails> 
+                <a target="_blank" href="https://uk.megabus.com">Megabus / </a><a target="_blank" href="http://www.nationalexpress.com">National express</a>
+              </TransportDetails>
 
-            <Transportation> Train </Transportation>
-            <TransportDetails> 
-              <a target="_blank" href="https://www.gwr.com">GWR /</a> <a target="_blank" href="https://www.thetrainline.com"> trainline</a>
-            </TransportDetails>
-            <TransportDetails>  
-              <a target="_blank" href="https://uk.megabus.com"> Megabus have some cheaper train fares from e.g. London.</a>
-            </TransportDetails>
+              <Transportation> Train </Transportation>
+              <TransportDetails> 
+                <a target="_blank" href="https://www.gwr.com">GWR /</a> <a target="_blank" href="https://www.thetrainline.com"> trainline</a>
+              </TransportDetails>
+              <TransportDetails>  
+                <a target="_blank" href="https://uk.megabus.com"> Megabus have some cheaper train fares from e.g. London.</a>
+              </TransportDetails>
 
-            <Transportation> Nearest airports </Transportation>
-            <NearestAirport> 
-              Manchester, Doncaster, Leeds Bradford,
-              East Midlands, Birmingham and London.
-            </NearestAirport>
+              <Transportation> Nearest airports </Transportation>
+              <NearestAirport> 
+                Manchester, Doncaster, Leeds Bradford,
+                East Midlands, Birmingham and London.
+              </NearestAirport>
 
-            <Transportation> Hotels/hostels/rooms</Transportation>
-            <TransportDetails><a target="_blank" href="http://www.booking.com/searchresults.html?city=-2607573&aid=1357706&checkin_monthday=8&checkin_month=11&checkin_year=2017&checkout_monthday=13&checkout_month=11&checkout_year=2017&no_rooms=1&group_adults=1">booking.com </a> / <a target="_blank" href="https://http://airbnb.com"> airbnb</a></TransportDetails>
+              <Transportation> Hotels/hostels/rooms</Transportation>
+              <TransportDetails><a target="_blank" href="http://www.booking.com/searchresults.html?city=-2607573&aid=1357706&checkin_monthday=8&checkin_month=11&checkin_year=2017&checkout_monthday=13&checkout_month=11&checkout_year=2017&no_rooms=1&group_adults=1">booking.com </a> / <a target="_blank" href="https://http://airbnb.com"> airbnb</a></TransportDetails>
 
 
-          </TransportWrapper>
-        </AccomodationWrapper>
-      </MainBackground>
+            </TransportWrapper>
+          </AccomodationWrapper>
+        </MainBackground>
+      </Element>
     )
   }
 }

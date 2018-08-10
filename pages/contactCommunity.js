@@ -5,10 +5,13 @@ import colors from '<Styles>/colors'
 import Grid from '<Features>/Grid'
 import fonts from '<Styles>/fonts'
 import { Icon } from '<UI>'
+import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
 const sectionText = fonts.sectionText
+
+const Element = Scroll.Element;
 
 class ContactAndCommunity extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -19,39 +22,41 @@ class ContactAndCommunity extends React.Component {
   render() {
 
     return (
-      <MainBackground>
-        {/* <Grid /> */}
-        <ContactWrapper>
-          <SectionHeader>CONTACT <br/> & COMMUNITY</SectionHeader>
+      <Element name="contact">
+        <MainBackground>
+          {/* <Grid /> */}
+          <ContactWrapper>
+            <SectionHeader>CONTACT <br/> & COMMUNITY</SectionHeader>
 
-          <DetailWrapper>
-            <MailWrapper>
-              <Email> Email Organizers </Email>
-              <MailDetails> 
-                <Icon name="mail" className="mail-icon" /> 
-                hello@slab.org
-              </MailDetails>
-            </MailWrapper>
+            <DetailWrapper>
+              <MailWrapper>
+                <Email> Email Organizers </Email>
+                <MailDetails> 
+                  <Icon name="mail" className="mail-icon" /> 
+                  hello@slab.org
+                </MailDetails>
+              </MailWrapper>
 
-            <MailWrapper>
-              <Email> Join </Email>
-              <HashtagWrapper> 
-                <Hashtag>
-                  <a target="_blank" href="https://talk.lurk.org/channel/livecodefest">#livecodefest</a>
-                </Hashtag>
-                <IconWrapper>
-                  <Icon name="arrow" className="hashtag-arrow"/>
-                </IconWrapper>
-              </HashtagWrapper>
-              <ChannelDetails> Channel on 
-                <ChannelGroup> 
-                  <a target="_blank" href="https://talk.lurk.org">talk.lurk.org</a> 
-                </ChannelGroup>
-              </ChannelDetails>
-            </MailWrapper>
-          </DetailWrapper>
-        </ContactWrapper>
-      </MainBackground>
+              <MailWrapper>
+                <Email> Join </Email>
+                <HashtagWrapper> 
+                  <Hashtag>
+                    <a target="_blank" href="https://talk.lurk.org/channel/livecodefest">#livecodefest</a>
+                  </Hashtag>
+                  <IconWrapper>
+                    <Icon name="arrow" className="hashtag-arrow"/>
+                  </IconWrapper>
+                </HashtagWrapper>
+                <ChannelDetails> Channel on 
+                  <ChannelGroup> 
+                    <a target="_blank" href="https://talk.lurk.org">talk.lurk.org</a> 
+                  </ChannelGroup>
+                </ChannelDetails>
+              </MailWrapper>
+            </DetailWrapper>
+          </ContactWrapper>
+        </MainBackground>
+      </Element>
     )
   }
 }
