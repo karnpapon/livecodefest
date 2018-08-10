@@ -6,9 +6,12 @@ import styled from 'styled-components'
 import fonts from '<Styles>/fonts'
 import colors from '<Styles>/colors'
 import { Collapse } from 'react-collapse';
+import Scroll from 'react-scroll';
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
+
+const LinkScroll = Scroll.Link;
 
 class Info extends React.Component {
   constructor(props) {
@@ -26,6 +29,11 @@ class Info extends React.Component {
     this.setState({ isOpen: false})
   }
 
+  handleSetActive = () => {
+    const { setInfoHide } = this.props
+    setInfoHide()
+  }
+
 
   render() {
 
@@ -36,16 +44,52 @@ class Info extends React.Component {
       <Collapse isOpened={show} >
         <TextWrapper>
           <HeaderText>
-            <Title>PROGRAMME</Title>
+            <LinkScroll 
+              activeClass="active" 
+              to="programme" 
+              onSetActive={this.handleSetActive}
+              spy={true} 
+              smooth={true} 
+              duration={250} 
+            >
+              <Title>PROGRAMME</Title>
+            </LinkScroll>
           </HeaderText>
           <HeaderText>
-            <Title>ACCOMODATION</Title>
+            <LinkScroll
+              activeClass="active"
+              to="accommodation"
+              onSetActive={this.handleSetActive}
+              spy={true}
+              smooth={true}
+              duration={250}
+            >
+              <Title>ACCOMODATION</Title>
+            </LinkScroll>
           </HeaderText>
           <HeaderText>
-            <Title>CONTACT <br/> & COMMUNITY</Title>
+            <LinkScroll
+              activeClass="active"
+              to="contact"
+              onSetActive={this.handleSetActive}
+              spy={true}
+              smooth={true}
+              duration={250}
+            >
+              <Title>CONTACT <br/> & COMMUNITY</Title>
+            </LinkScroll>
           </HeaderText>
           <HeaderText>
-            <Title>COLLABORATORS <br/> & SPONSORS</Title>
+            <LinkScroll
+              activeClass="active"
+              to="collaborator"
+              onSetActive={this.handleSetActive}
+              spy={true}
+              smooth={true}
+              duration={250}
+            >
+              <Title>COLLABORATORS <br/> & SPONSORS</Title>
+            </LinkScroll>
           </HeaderText>
           <InfoText>
             <InfoDesc>Sheffield hosted the 

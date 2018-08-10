@@ -4,6 +4,35 @@
     {
       "icon": {
         "paths": [
+          "M731.429 292.571h146.286v73.143h-146.286v-73.143zM365.714 292.571h292.571v73.143h-292.571v-73.143zM146.286 292.571h146.286v73.143h-146.286v-73.143zM280.381 93.091c-24.686 0-44.698 20.839-44.698 46.545v744.727c0 25.706 20.012 46.545 44.698 46.545h536.381c24.686 0 44.698-20.839 44.698-46.545v-744.727c0-25.706-20.012-46.545-44.698-46.545h-536.381zM280.381 0h536.381c74.059-0 134.095 62.517 134.095 139.636v744.727c0 77.119-60.036 139.636-134.095 139.636h-536.381c-74.059 0-134.095-62.517-134.095-139.636v-744.727c0-77.119 60.036-139.636 134.095-139.636z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "grid": 0,
+        "tags": [
+          "livecoding-ticket"
+        ]
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 22,
+        "id": 6,
+        "name": "livecoding-ticket",
+        "prevSize": 32,
+        "code": 59654
+      },
+      "setIdx": 0,
+      "setId": 2,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
           "M563.2 789.943l212.114-212.114c21.943-21.943 51.2-14.629 65.829 0 14.629 21.943 14.629 51.2 0 65.829l-292.571 292.571c-21.943 21.943-51.2 21.943-65.829 0l-292.571-292.571c-21.943-21.943-14.629-51.2 0-65.829 21.943-14.629 51.2-14.629 65.829 0l212.114 212.114v-665.6c-7.314-29.257 14.629-51.2 43.886-51.2s51.2 21.943 51.2 43.886c0 0 0 0 0 0v672.914z"
         ],
         "attrs": [
@@ -20,7 +49,7 @@
         {}
       ],
       "properties": {
-        "order": 9,
+        "order": 16,
         "id": 5,
         "name": "livecoding-arrow-down",
         "prevSize": 32,
@@ -28,7 +57,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 0
+      "iconIdx": 1
     },
     {
       "icon": {
@@ -49,7 +78,7 @@
         {}
       ],
       "properties": {
-        "order": 10,
+        "order": 17,
         "id": 4,
         "name": "livecoding-arrow",
         "prevSize": 32,
@@ -57,7 +86,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 1
+      "iconIdx": 2
     },
     {
       "icon": {
@@ -78,7 +107,7 @@
         {}
       ],
       "properties": {
-        "order": 11,
+        "order": 18,
         "id": 3,
         "name": "livecoding-close-btn",
         "prevSize": 32,
@@ -86,7 +115,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 2
+      "iconIdx": 3
     },
     {
       "icon": {
@@ -107,7 +136,7 @@
         {}
       ],
       "properties": {
-        "order": 13,
+        "order": 19,
         "id": 2,
         "name": "livecoding-location",
         "prevSize": 32,
@@ -115,7 +144,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 3
+      "iconIdx": 4
     },
     {
       "icon": {
@@ -136,7 +165,7 @@
         {}
       ],
       "properties": {
-        "order": 12,
+        "order": 20,
         "id": 1,
         "name": "livecoding-mail",
         "prevSize": 32,
@@ -144,7 +173,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 4
+      "iconIdx": 5
     },
     {
       "icon": {
@@ -186,7 +215,7 @@
         {}
       ],
       "properties": {
-        "order": 14,
+        "order": 21,
         "id": 0,
         "name": "livecoding-toplap-logo",
         "prevSize": 32,
@@ -194,7 +223,7 @@
       },
       "setIdx": 0,
       "setId": 2,
-      "iconIdx": 5
+      "iconIdx": 6
     }
   ],
   "height": 1024,

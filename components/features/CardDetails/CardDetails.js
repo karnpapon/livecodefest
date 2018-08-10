@@ -7,9 +7,12 @@ import fonts from '<Styles>/fonts'
 import colors from '<Styles>/colors'
 import { Icon } from '<UI>'
 import { Collapse } from 'react-collapse';
+import renderHTML from 'react-render-html';
+import CardDesc from '<Features>/CardDesc'
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
+const orangeVeryLight = colors.orangeVeryLight
 
 class CardDetails extends React.Component {
   constructor(props) {
@@ -27,14 +30,26 @@ class CardDetails extends React.Component {
     this.setState({ isOpen: false})
   }
 
+  setCardOpenFromInfo = () => {
+    this.setCardOpen()
+  }
+
   render() {
 
+    const { setCardOpenFromInfo } = this.props;
     const { setCardClose, setCardOpen } = this
     const { isOpen } = this.state
     const { eventInfo, seemore } = this.props
-    const { date, title, description, detail, location, booking, locationDetail, bookingLink } = eventInfo
-
-    console.log("see more l", this.props.seemore)
+    const { 
+      date, 
+      title, 
+      description, 
+      detail, 
+      location, 
+      booking, 
+      locationDetail, 
+      testimonial,
+      bookingLink } = eventInfo
 
     return (
       <CardWrapper>
@@ -45,6 +60,7 @@ class CardDetails extends React.Component {
               <DescInfo>{ description }</DescInfo>
               <Collapse isOpened={isOpen} springConfig={{ stiffness: 240}}>
                 <DescInfoCollapsed>{ detail}</DescInfoCollapsed>
+                <DescInfoCollapsed>{renderHTML( testimonial )}</DescInfoCollapsed>
               {seemore ? (
                 <HashtagWrapper>
                   <Hashtag>see more</Hashtag>
@@ -66,7 +82,7 @@ class CardDetails extends React.Component {
 
           <InfoWrapper>
             <TicketInfo>
-              <Icon name="arrow" className="ticket-icon" />
+              <Icon name="ticket" className="ticket-icon" />
                 <a target="_blank" href={bookingLink}>{ booking }</a>
             </TicketInfo>
             { !isOpen ? 
@@ -158,7 +174,7 @@ const TicketInfo = styled.div`
 
 const MoreInfo = styled.div`
   padding: 12px 0;
-  background-color: ${props => props.isOpen ? `${orangeDark}` :`${orangeLight}` };
+  background-color: ${props => props.isOpen ? `${orangeDark}` :`${orangeVeryLight}` };
   border-bottom: 2px solid black;
   border-right: 2px solid black;
   color: black;

@@ -4,10 +4,13 @@ import styled from 'styled-components'
 import colors from '<Styles>/colors'
 import Grid from '<Features>/Grid'
 import fonts from '<Styles>/fonts'
+import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
 const sectionText = fonts.sectionText
+
+const Element = Scroll.Element;
 
 class CollabAndSponsor extends React.Component {
   static async getInitialProps({ query, res }) {
@@ -18,24 +21,26 @@ class CollabAndSponsor extends React.Component {
   render() {
 
     return (
-      <MainBackground>
-        {/* <Grid /> */}
-        <ContactWrapper>
-          <SectionHeader>Collaborators <br/> & Sponsors</SectionHeader>
-          <CollaboratorsAndSponsors>
-            <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
-            <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
-          </CollaboratorsAndSponsors>
-        </ContactWrapper>
-      </MainBackground>
+      <Element name="collaborator">
+        <MainBackground>
+          {/* <Grid /> */}
+          <ContactWrapper>
+            <SectionHeader>Collaborators <br/> & Sponsors</SectionHeader>
+            <CollaboratorsAndSponsors>
+              <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
+              <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
+            </CollaboratorsAndSponsors>
+          </ContactWrapper>
+        </MainBackground>
+      </Element>
     )
   }
 }

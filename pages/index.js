@@ -14,9 +14,13 @@ import CollabAndSponsor from './collabAndSponsor';
 import Info from '<Features>/Info'
 import Header from '<Features>/Header'
 import Footer from '<Features>/Footer'
+import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
+
+const LinkScroll = Scroll.Link;
+const Element = Scroll.Element;
 
 class Index extends React.Component {
   static async getInitialProps ({ query, res }) {
@@ -44,59 +48,68 @@ class Index extends React.Component {
     const { setInfoHide, setInfoShow } = this
 
     return (
-      <Main>
-        {/* <Grid/> */}
+      <Element name="home">
+        <Main>
+          {/* <Grid/> */}
 
-        {/* <Header setInfoShow={ setInfoShow }/> */}
-        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show}/>
+          {/* <Header setInfoShow={ setInfoShow }/> */}
+          <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show}/>
+          <MainBackground>
 
-        <MainBackground>
+            {/* <Info show={show}/> */}
+              <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
+                <LinkScroll
+                  activeClass="active"
+                  to="programme"
+                  spy={true}
+                  smooth={true}
+                  duration={250}
+                >
+                  <IconWrapper>
+                    <Icon name="arrow-down" className="hashtag-arrow" />
+                  </IconWrapper> 
+                </LinkScroll>
+              </TitleImg>
+  
+            <SectionHeader>
+              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
+              Livecode Festival  
+            </SectionHeader>
+            <EventDate>
+              1 - 3rd September 2018 <br/>
+              at Sheffield UK
+            </EventDate>
 
-          {/* <Info show={show}/> */}
-          <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
-            <IconWrapper>
-              <Icon name="arrow-down" className="hashtag-arrow" />
-            </IconWrapper> 
-          </TitleImg>
- 
-          <SectionHeader>
-            <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-            Livecode Festival  
-          </SectionHeader>
-          <EventDate>
-            1 - 3rd September 2018 <br/>
-            at Sheffield UK
-          </EventDate>
+            <EventDesc>
+              <VerticalLine/>
+              <DescWrapper>
+                Sheffield hosted 
+                <a target="_blank" href="https://web.archive.org/web/20160409053149/http://livecode.access-space.org">
+                  <PolicyText className="button">
+                    the first livecode fest in 2007, 
+                  </PolicyText>
+                </a><br/>
+                now we're back with part two.. 
+              </DescWrapper>
+            </EventDesc>
 
-          <EventDesc>
-            <VerticalLine/>
-            <DescWrapper>
-              Sheffield hosted 
-              <a target="_blank" href="https://web.archive.org/web/20160409053149/http://livecode.access-space.org">
-                <PolicyText className="button">
-                  the first livecode fest in 2007, 
-                </PolicyText>
-              </a><br/>
-              now we're back with part two.. 
-            </DescWrapper>
-          </EventDesc>
-
-          <EventPromo>
-            Three days of music <br/>
-            visuals <br/>
-            talks <br/>
-            demos <br/>
-            and workshops.
-          </EventPromo>
-        </MainBackground>
+            <EventPromo>
+              Three days of music <br/>
+              visuals <br/>
+              talks <br/>
+              demos <br/>
+              and workshops.
+            </EventPromo>
+          </MainBackground>
 
 
 
-        <Programme/>
-        <Accomodation/>
-        <ContactAndCommunity/>
-        <CollabAndSponsor/>
-      </Main> 
+          <Programme/>
+          <Accomodation/>
+          <ContactAndCommunity/>
+          <CollabAndSponsor/>
+        </Main> 
+      </Element>
     )
   }
 }
