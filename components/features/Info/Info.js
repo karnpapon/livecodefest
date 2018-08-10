@@ -95,7 +95,7 @@ const HeaderContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 610px;
+  width: 510px;
   height: auto;
   background-color: ${ orangeLight };
   transition: .3s;

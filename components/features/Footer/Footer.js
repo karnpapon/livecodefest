@@ -61,7 +61,6 @@ const FooterWrapper = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${ orangeLight} ;
-  border-right: 2px solid black;
   transition: .15s;
   padding: 12px 0;
   bottom: 0;

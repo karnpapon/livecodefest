@@ -7,6 +7,7 @@ const dataEvent = [
     location: 'Access Space Labs',
     locationDetail: '3-7 Sidney St, Sheffield S1 4RG',
     booking: 'Sign up here',
+    bookingLink: 'https://www.eventbrite.co.uk/e/introduction-to-live-coding-for-women-and-non-binary-people-tickets-48694007086',
     testimonial: '',
     detail:
       `A beginners' live coding workshop presented by SONA, 
@@ -24,6 +25,7 @@ const dataEvent = [
     location: 'Access Space Labs',
     locationDetail: '3-7 Sidney St, Sheffield S1 4RG',
     booking: 'Places limited, reserve your place',
+    bookingLink:'https://tickets.partyforthepeople.org/events/4173-livecode-visualists-meetup',
     testimonial: '',
     detail:
       `A session for live coding visualists (at any level) 
@@ -48,6 +50,7 @@ const dataEvent = [
     location: 'DINA',
     locationDetail: '32A-34 Cambridge St, Sheffield S1 4HP',
     booking: 'Tickets now available',
+    bookingLink: 'https://tickets.partyforthepeople.org/events/4156-algorave-sheffield',
     testimonial:
       `The scene at an algorave is often what you\'d expect from any good techno night - 
       a dark room, engaging visuals. a decent, bass-heavy speaker set-up, 
@@ -84,6 +87,7 @@ const dataEvent = [
     location: 'Access Space',
     locationDetail: '3-7 Sidney St, Sheffield S1 4RG',
     booking: 'Tickets now available',
+    bookingLink: 'https://tickets.partyforthepeople.org/events/3823-toplap-moot',
     testimonial:'',
     detail:
       `Two days of activities aimed at active live coders at any stage of their career. 

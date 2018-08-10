@@ -120,6 +120,7 @@ const MailWrapper = styled.div`
 
 const Email = styled.div`
   font-size: 12px;
+  font-weight: bolder;
   background: black;
   color: white;
   width: fit-content;

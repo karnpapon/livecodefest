@@ -32,7 +32,7 @@ class CardDetails extends React.Component {
     const { setCardClose, setCardOpen } = this
     const { isOpen } = this.state
     const { eventInfo, seemore } = this.props
-    const { date, title, description, detail, location, booking, locationDetail } = eventInfo
+    const { date, title, description, detail, location, booking, locationDetail, bookingLink } = eventInfo
 
     console.log("see more l", this.props.seemore)
 
@@ -67,7 +67,7 @@ class CardDetails extends React.Component {
           <InfoWrapper>
             <TicketInfo>
               <Icon name="arrow" className="ticket-icon" />
-              { booking }
+                <a target="_blank" href={bookingLink}>{ booking }</a>
             </TicketInfo>
             { !isOpen ? 
               ( <MoreInfo isOpen={isOpen} onClick={setCardOpen }>
@@ -136,6 +136,15 @@ const TicketInfo = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+
+  a{
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: ${ orangeDark };
+  }
 
   @media (max-width: 991px) {
     padding-bottom: 50px;
