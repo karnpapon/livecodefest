@@ -152,6 +152,9 @@ const HashtagWrapper = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
   display: flex;
+    &:hover{
+    background: ${ orangeDark};
+  }
 `
 
 const Hashtag = styled.p`
@@ -174,8 +177,5 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transition: .15s;
-  cursor: pointer;
-    &:hover{
-      background: ${ orangeDark }
-    }
+ 
 `

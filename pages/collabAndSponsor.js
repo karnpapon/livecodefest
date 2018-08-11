@@ -27,16 +27,25 @@ class CollabAndSponsor extends React.Component {
           <ContactWrapper>
             <SectionHeader>Collaborators <br/> & Sponsors</SectionHeader>
             <CollaboratorsAndSponsors>
-              <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
-              <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
+              <a target="_blank" href="http://access-space.org">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
+              </a>
+              <a target="_blank" href="http://algorave.com">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
+              </a>
+              <a target="_blank" href="http://penelope.hypotheses.org">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
+              </a>
+              <a target="_blank" href="http://dajf.org.uk">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
+              </a>
+              <a target="_blank" href="http://www.gbsf.org.uk">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
+              </a>
+              <a target="_blank" href="https://artscouncil.org.uk">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/artscouncil.svg")` }} />
+              </a>
+
             </CollaboratorsAndSponsors>
           </ContactWrapper>
         </MainBackground>
