@@ -4,26 +4,29 @@
 }
 
 #nprogress .bar {
-  background: #ddd;
+  background: red; /* Old browsers */
+  background: black; /* FF3.6-15 */
+  background: red; /* Chrome10-25,Safari5.1-6 */
+  background: black; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccd5fa', endColorstr='#e3b3c5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   position: fixed;
   z-index: 1031;
-  top: 0;
+  bottom: 0;
   left: 0;
 
   width: 100%;
-  bottom: 0;
-  transform: translate3d(0,0,0) !important;
+  height: 2px;
+  margin-bottom: 40px;
 }
 
 /* Fancy blur effect */
 #nprogress .peg {
-  display: none;
+  display: block;
   position: absolute;
   right: 0px;
   width: 100px;
   height: 100%;
-  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
   opacity: 1.0;
 
   -webkit-transform: rotate(3deg) translate(0px, -4px);
@@ -36,28 +39,22 @@
   display: block;
   position: fixed;
   z-index: 1031;
-  top: 50%;
-  margin-top: -15px;
-  right: 50%;
-  margin-right: -15px;
+  top: 15px;
+  right: 15px;
 }
 
 #nprogress .spinner-icon {
-  width: 40px;
-  height: 40px;
+  width: 18px;
+  height: 18px;
   box-sizing: border-box;
 
-  border: solid 6px transparent;
-  border-top-color: black;
-  border-left-color: black;
+  border: solid 2px transparent;
+  border-top-color: #ccd5fa;
+  border-left-color: #ccd5fa;
   border-radius: 50%;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;
           animation: nprogress-spinner 400ms linear infinite;
-
-  /*width: 100px;
-  height: 20px;
-  background-image: url('/static/images/loading.svg');*/
 }
 
 .nprogress-custom-parent {

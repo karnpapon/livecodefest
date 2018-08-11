@@ -6,7 +6,18 @@ import styled, { injectGlobal } from 'styled-components'
 import colors from '<Styles>/colors'
 // import Header from '<Features>/Header'
 import Footer from '<Features>/Footer'
+import NProgress from 'nprogress'
 
+
+Router.onRouteChangeStart = (url) => {
+  NProgress.start()
+}
+Router.onRouteChangeComplete = () => {
+  NProgress.done()
+}
+Router.onRouteChangeError = () => {
+  NProgress.done()
+}
 
 export default class Main extends Component {
   constructor(props) {
@@ -38,6 +49,7 @@ export default class Main extends Component {
           <link href="https://fonts.googleapis.com/css?family=Heebo:100,400,700,900" rel="stylesheet"/>
           <link rel='stylesheet' type='text/css' href='/static/styles/normalize.css' />
           <link rel='stylesheet' type='text/css' href='/static/fonts/icons-livecoding/style.css' />
+          <link rel='stylesheet' type='text/css' href='/static/styles/nprogress.css' />
         </Head>
 
         {/* <Header/> */}

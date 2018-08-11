@@ -75,19 +75,9 @@ const ContactWrapper = styled.div`
   width: 100%;
   padding: 100px 130px;
   padding-bottom: 0px;
-
-  &::after{
-    content: '';
-    bottom: -9px;
-    right: 0;
-    left: 17px;
-    height: 2px;
-    background-color: black;
-    margin-top: 50px;
-  }
 `
 
-const ChannelDetails = styled.p`
+const ChannelDetails = styled.div`
   display: inline-flex;
 `
 const ChannelGroup = styled.p`
@@ -131,9 +121,10 @@ const Email = styled.div`
   width: fit-content;
   padding: 5px;
 `
-const MailDetails = styled.p`
+const MailDetails = styled.div`
   text-decoration: underline;
   cursor: pointer;
+  padding-top: 20px;
   &:hover{
     color: ${ orangeDark};
   }

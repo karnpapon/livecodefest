@@ -68,6 +68,15 @@ const ContactWrapper = styled.div`
   width: 100%;
   padding: 100px 130px;
   padding-bottom: 0px;
+
+   &::before{
+    content: '';
+    bottom: -9px;
+    right: 0;
+    left: 17px;
+    height: 2px;
+    background-color: black;
+  }
 `
 
 const SectionHeader = styled.p`
@@ -75,6 +84,7 @@ const SectionHeader = styled.p`
   font-size: ${sectionText};
   font-weight: bolder;
   padding-left: 130px;
+  margin-top: 100px;
 `
 
 const CollaboratorsAndSponsors = styled.div`

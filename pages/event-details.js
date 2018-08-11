@@ -12,16 +12,14 @@ import Footer from '<Features>/Footer'
 
 import Programme from './programme'
 import CollabAndSponsor from './collabAndSponsor';
-import AppearsIn from './appearsIn';
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
 const orangeLight = colors.orangeLight
+const orangeVeryLight = colors.orangeVeryLight
 
-const sectionText = fonts.sectionText
 
-
-class ArtistProfile extends React.Component {
+class EventDetails extends React.Component {
   static async getInitialProps({ query, res }) {
     return true
   }
@@ -29,7 +27,8 @@ class ArtistProfile extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: false
+      show: false,
+      isOpen: false
     }
   }
 
@@ -40,11 +39,20 @@ class ArtistProfile extends React.Component {
     this.setState({ show: false })
   }
 
+  setCardClose = () => {
+
+  }
+
+  setCardOpen = () => {
+
+  }
+
 
   render() {
 
-    const { show } = this.state
+    const { show, isOpen } = this.state
     const { setInfoHide, setInfoShow } = this
+    const { setCardClose, setCardOpen } = this
 
     return (
       <Main>
@@ -52,6 +60,23 @@ class ArtistProfile extends React.Component {
         {/* <Head>
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         </Head> */}
+
+      <TicketWrapper>
+        <InfoWrapper>
+          <TicketInfo>
+            <Icon name="ticket" className="ticket-icon" />
+            <a target="_blank" href="">Booking</a>
+          </TicketInfo>
+          {!isOpen ?
+            (<MoreInfo isOpen={isOpen} onClick={setCardOpen}>
+              <Icon name="arrow-down" />
+            </MoreInfo>) :
+            (<MoreInfo isOpen={isOpen} onClick={setCardClose}>
+              <Icon name="close-btn" className="close-btn" />
+            </MoreInfo>)
+          }
+        </InfoWrapper>
+      </TicketWrapper>
 
         <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} />
         <MainBackground>
@@ -62,44 +87,31 @@ class ArtistProfile extends React.Component {
               <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
             </Link>
           </SectionHeader>
-          <EventDate> Chiho Oka and Renick Bell </EventDate>
 
           <ImageWrapper>
-            <TitleImg style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}/>
-            <TitleImgBW style={{ backgroundImage: `url("static/images/artistprofile-bit.jpg")` }}/>
+            <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
+            <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
           </ImageWrapper>
 
-          <DetailBox> 
-            <DetailText>Lucy Cheesman is a major live code agitator in Sheffield, 
-              performing widely solo as Heavy Lifting and in a diversity of bands 
-              including TYPE and the Trve Yorkshire Kvlt Ensemble. 
-              She also co-runs the SONA network for women and girls in music technology 
-              and the monthly(ish) Tidal club meetings in Sheffield.
-            </DetailText>
-            <iframe 
-            width="100%" 
-            height="315" 
-            src="https://www.youtube.com/embed/MkU3CVCYyNU" 
-            frameBorder="0" 
-            allow="autoplay; encrypted-media" 
-            />
-            <DetailText>
-              <Website>https://heavy-lifting.github.io/</Website>
-              <Social>Twitter: @abelstaites</Social>
+          <DetailBox>
+            <DetailText>Probably the world's first two-room Algorave, 
+              with an international line-up of top notch live coders and algorithmic producers, 
+              including Renick Bell + Chiho Oka, Atsushi Tadokoro, Akihiro Kubota, 
+              Linux Lewis, Yaxu, Alexandra Cardenas, LiveDog Inc., 
+              Heavy Lifting, ALGOBABEZ, Qirky, Neil C Smith, Innocent, 
+              Thorsten Sideboard, Alejandro Albornoz, tedthetrumpet, Digital Selves + more ..
             </DetailText>
           </DetailBox>
-             
+
         </MainBackground>
 
-          {/* <CardDesc/> */}
-          <AppearsIn/>
         <CollabAndSponsor />
-      </Main> 
+      </Main>
     )
   }
 }
 
-export default ArtistProfile;
+export default EventDetails;
 
 
 const MainBackground = styled.div`
@@ -114,8 +126,8 @@ const MainBackground = styled.div`
 `
 
 const DetailBox = styled.div`
-  width: 530px;
-  background: ${ orangeLight };
+  width: 830px;
+  background: ${ orangeLight};
   border: 2px solid black;
   align-self: flex-end;
   margin-right: 130px;
@@ -223,7 +235,7 @@ const TitleImg = styled.span`
     position: absolute;
     border: 2px solid black;
     background-repeat: no-repeat;
-    background-position: center;
+    background-size: cover;
     width: 600px;
     height: 350px;
     justify-content: flex-end;
@@ -244,10 +256,12 @@ const TitleImgBW = styled.span`
     border: 2px solid black;
     background-repeat: no-repeat;
     background-position: center;
-    width: 480px;
-    height: 240px;
-    margin-left: 40%;
-    margin-top: -2%;
+    background-size: cover;
+    width: 280px;
+    height: 280px;
+    right: 0;
+    margin-right: 20%;
+    margin-top: -5%;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
@@ -276,23 +290,74 @@ const IconWrapper = styled.div`
       background: ${ orangeDark}
     }
 `
-const ProgrammeWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 100px 130px;
-  padding-bottom: 20px;
+
+const InfoWrapper = styled.div`
+ display: flex;
+  width: 600px;
+  position: fixed;
+  z-index: 10;
+  padding-top: 20px;
+
+ .ticket-icon{
+   padding-right: 10px;
+ }
 `
 
-const CardWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-`
-
-
-const SectionTitle = styled.p`
+const TicketInfo = styled.div`
   font-family: ${ fonts.systemRegular};
-  font-size: ${ sectionText};
+  font-size: 12px;
   font-weight: bolder;
-  margin-left: 130px;
+  padding: 12px 0;
+  background-color: ${orangeLight};
+  border-bottom: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  color: black;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+
+  a{
+    color: black;
+    text-decoration: none;
+  }
+
+  a:hover{
+    color: ${ orangeDark};
+  }
+
+  @media (max-width: 991px) {
+    padding-bottom: 50px;
+  }
+
+  @media (max-width: 767px) {
+    padding-top: 10px;
+    padding-bottom: 30px;
+  }
+`
+
+const MoreInfo = styled.div`
+  padding: 12px 0;
+  background-color: ${props => props.isOpen ? `${orangeDark}` : `${orangeVeryLight}`};
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  border-top: 2px solid black;
+  color: black;
+  display: flex;
+  justify-content: center;
+  width: 8%;
+  transition: .15s;
+  &:hover{
+    cursor: pointer;
+    background: ${orangeDark};
+  }
+`
+
+const TicketWrapper = styled.div`
+  position: absolute;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 50px;
 `

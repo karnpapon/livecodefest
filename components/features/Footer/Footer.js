@@ -21,7 +21,7 @@ class Footer extends React.Component {
     const { show, setInfoShow, setInfoHide } = this.props
 
     return (
-  
+
       <FooterWrapper>
 
   
@@ -37,15 +37,9 @@ class Footer extends React.Component {
       <FooterContainer>
         <ContainerStyled>
           <CopyrighAndIcon>
-            <LinkScroll
-              activeClass="active"
-              to="home"
-              spy={true}
-              smooth={true}
-              duration={250}
-            >
+            <Link href="/" >
               <Icon name="toplap-logo" className="toplap-logo"/>
-            </LinkScroll>
+            </Link>
             <Copyright>
               For the love of Coding | Livecode Festival, 2018
             </Copyright>
@@ -162,6 +156,7 @@ const CopyrighAndIcon = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+  cursor: pointer;
 `
 
 const ContainerInfo = styled(Container)`

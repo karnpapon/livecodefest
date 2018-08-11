@@ -93,28 +93,28 @@ class Info extends React.Component {
           </HeaderText>
           <InfoText>
             <InfoDesc>Sheffield hosted the 
-              <Link href="/">
+              <a target="_blank" href="https://web.archive.org/web/20160409053149/http://livecode.access-space.org">
                 <DescLink >first livecode fest in 2007, </DescLink>
-              </Link>
+              </a>
               with others organising+hosting many lovely events since then 
-              (e.g. <Link href="/"><DescLink > live.code.fest </DescLink></Link> 
-              Karlsruhe,<Link href="/"><DescLink > ICLC </DescLink></Link>  in Leeds, Canada, 
-              Morelia and next <Link href="/"><DescLink> Madrid </DescLink></Link> ).. 
+              (e.g. <a target="_blank" href="http://imwi.hfm.eu/livecode/2013/2013.html"><DescLink > live.code.fest </DescLink></a> 
+              Karlsruhe,<a target="_blank" href="https://iclc.livecodenetwork.org"><DescLink > ICLC </DescLink></a>  in Leeds, Canada, 
+              Morelia and next <a target="_blank" href="https://iclc.livecodenetwork.org/2019"><DescLink> Madrid </DescLink></a> ).. 
               Now 11 years later we're back in Sheffield for three days of music, 
               visuals, talks, demos and workshops. <br/>
               <br/>
               Day one will kick off with a 
-              <Link href="/"><DescInfoLink > beginners' live coding music workshop 1. </DescInfoLink></Link>  
+              <LinkScroll to="programme"><DescInfoLink > beginners' live coding music workshop 1. </DescInfoLink></LinkScroll>  
               for women and non-binary people, plus a 
-              <Link href="/"><DescInfoLink> live code visualists meetup 2. </DescInfoLink></Link>
+              <LinkScroll to="programme"><DescInfoLink> live code visualists meetup 2. </DescInfoLink></LinkScroll>
               Then going into the night with a club event 
               with 24 top algorithmic producers over two rooms, 
               one with full-on 
-              <Link href="/"><DescInfoLink>algorave 3 </DescInfoLink></Link>
+              <LinkScroll to="programme"><DescInfoLink>algorave 3 </DescInfoLink></LinkScroll>
               and another for more chilled experiments. <br/>
               <br/>
               Day two and three will be the  
-              <Link href="/"><DescInfoLink>"toplap moot" 4 </DescInfoLink></Link>
+              <LinkScroll to="programme"><DescInfoLink>"toplap moot" 4 </DescInfoLink></LinkScroll>
               - two days of talks and hands-on workshops 
               aimed at live coders at any stage of their career.<br/>
               <br/>
@@ -212,6 +212,13 @@ const InfoDesc = styled.div`
   font-family: ${fonts.systemRegular}; 
   font-size: 14px;
   line-height: 1.35;
+
+  a{
+    color: black;
+  }
+  a:hover{
+    color: ${ orangeDark };
+  }
 `
 
 // const GoBackBtn = styled.div`

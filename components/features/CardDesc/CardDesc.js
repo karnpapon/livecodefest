@@ -17,30 +17,36 @@ class CardDesc extends React.Component {
 
 
   render() {
+    const { show } = this.props;
+
     return (
-      <CardWrapper>
+      <CardWrapper className={show? 'show':''}>
+        
+        <Container>
+          <InfoWrapper>
+            <TicketInfo>
+              Who's in ?
+            </TicketInfo>
+          </InfoWrapper>
 
-        <InfoWrapper>
-          <TicketInfo>
-            Who's in ?
-          </TicketInfo>
-        </InfoWrapper>
-
-        <HeaderContainer >
-          <ProfileWrapper>
-            { [0,1,2,3,4,5,6].map( ( item , index) => (
-              <PeopleWrapper>
-                <PeopleProfile>
-                  <IconWrapper>
-                    <Icon name="arrow" className="hashtag-arrow" />
-                  </IconWrapper> 
-                </PeopleProfile>
-                <DateInfo> CARD DESC </DateInfo>
-              </PeopleWrapper>
-            )) 
-          }
-          </ProfileWrapper>
-        </HeaderContainer>
+          <HeaderContainer >
+            <ProfileWrapper>
+              { [0,1,2,3,4,5,6].map( ( item , index) => (
+                <PeopleWrapper key={ index }>
+                  <PeopleProfile  style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}>
+                    <IconWrapper>
+                      <Icon name="arrow" className="hashtag-arrow" />
+                    </IconWrapper> 
+                  </PeopleProfile>
+                  <Link href="/artist-profile">
+                  <DateInfo> Artist Name </DateInfo>
+                  </Link>
+                </PeopleWrapper>
+              )) 
+            }
+            </ProfileWrapper>
+          </HeaderContainer>
+        </Container>
 
       </CardWrapper>
     )
@@ -50,16 +56,26 @@ class CardDesc extends React.Component {
 export default withRouter(CardDesc)
 
 const CardWrapper = styled.div`
- width: 340px;
-  height: 185px;
+  position: relative;
+  opacity: 0;
+  transition: .9s;
+  min-height: 300px;
+
+  &.show{
+    opacity: 1;
+    padding-left: 50px;
+  }
+`
+
+const Container = styled.div`
   display: flex;
-  margin-left: 130px;
   flex-direction: column;
   margin-bottom: 20px;
+  width: fit-content;
   position: absolute;
-  :nth-child(2){ margin-left: auto; margin-right: 10%;}
-  :nth-child(3){ margin-left: auto; margin-right: 20%;}
-  :nth-child(4){ margin-left: auto; margin-right: 26%;}
+  :nth-child(2){ margin-left: auto; }
+  :nth-child(3){ margin-left: auto; }
+  :nth-child(4){ margin-left: auto; }
 `
 
 const HeaderContainer = styled.div`
@@ -170,10 +186,10 @@ const AvenueInfo = styled.p`
 
 const PeopleProfile = styled.div`
   width: 100%;
-  height: 100%;
+  height: 70px; 
   border: 2px solid black;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   align-self: center;
   justify-content: flex-end;
@@ -206,6 +222,6 @@ const IconWrapper = styled.div`
 
 
 const PeopleWrapper = styled.div`
-
+  height: 100%;
   :nth-child(even){ margin-right: 10px; margin-left: 10px; }
 `

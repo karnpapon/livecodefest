@@ -58,8 +58,9 @@ class CardDetails extends React.Component {
               <DateInfo> { date } </DateInfo>
               <TitleInfo> { title} </TitleInfo>
               <DescInfo>{ description }</DescInfo>
-              <Collapse isOpened={isOpen} springConfig={{ stiffness: 240}}>
+              <Collapse isOpened={isOpen} springConfig={{ stiffness: 150}}>
                 <DescInfoCollapsed>{ detail}</DescInfoCollapsed>
+                <CardDesc show={isOpen} />
                 <DescInfoCollapsed>{renderHTML( testimonial )}</DescInfoCollapsed>
               {seemore ? (
                 <HashtagWrapper>
@@ -163,7 +164,7 @@ const TicketInfo = styled.div`
   }
 
   @media (max-width: 991px) {
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
   }
 
   @media (max-width: 767px) {
@@ -216,11 +217,13 @@ const DescInfoCollapsed = styled.div`
   font-size: 16px;
   line-height: 1.5;
   padding: 50px;
+  padding-bottom: 20px;
   text-align: left;
 `
 
-const AvenueInfo = styled.p`
+const AvenueInfo = styled.div`
   font-size: 12px;
+  padding-top: 20px;
 `
 
 const HashtagWrapper = styled.div`
