@@ -6,7 +6,7 @@ import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import CardDetails from '<Features>/CardDetails';
 import CardDesc from '<Features>/CardDesc';
-import { dataEvent } from '<DATA>/event';
+import { dataEvents } from '<DATA>';
 import Scroll from 'react-scroll';
 
 const primaryBackground = colors.primary
@@ -29,7 +29,7 @@ class Programme extends React.Component {
           <ProgrammeWrapper>
             <SectionHeader>PROGRAMME</SectionHeader>
             <CardWrapper>
-              { dataEvent.map((item, index) => 
+              { dataEvents.map((item, index) => 
                   <CardDetails 
                     eventInfo={item} 
                     key={index} 

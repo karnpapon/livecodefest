@@ -1,4 +1,4 @@
-const dataArtist = [
+const dataArtists = [
   {
     name: 'Lucy Cheesman',
 
@@ -800,3 +800,7 @@ const dataArtist = [
     ],
   },
 ]
+
+
+
+export default  ( dataArtists )  

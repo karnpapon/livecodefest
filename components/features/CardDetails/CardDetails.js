@@ -30,15 +30,11 @@ class CardDetails extends React.Component {
     this.setState({ isOpen: false})
   }
 
-  setCardOpenFromInfo = () => {
-    this.setCardOpen()
-  }
 
   render() {
 
-    const { setCardOpenFromInfo } = this.props;
-    const { setCardClose, setCardOpen } = this
-    const { isOpen } = this.state
+    const { setCardClose, setCardOpen, setCardDescOpen } = this
+    const { isOpen, isCardDescOpen } = this.state
     const { eventInfo, seemore } = this.props
     const { 
       date, 
@@ -49,6 +45,7 @@ class CardDetails extends React.Component {
       booking, 
       locationDetail, 
       testimonial,
+      slug,
       bookingLink } = eventInfo
 
     return (
@@ -58,13 +55,15 @@ class CardDetails extends React.Component {
               <DateInfo> { date } </DateInfo>
               <TitleInfo> { title} </TitleInfo>
               <DescInfo>{ description }</DescInfo>
-              <Collapse isOpened={isOpen} springConfig={{ stiffness: 150}}>
+            <Collapse isOpened={isOpen} springConfig={{ stiffness: 200 }}  >
                 <DescInfoCollapsed>{ detail}</DescInfoCollapsed>
-                <CardDesc show={isOpen} />
+              <CardDesc show={isOpen} programme={slug}/>
                 <DescInfoCollapsed>{renderHTML( testimonial )}</DescInfoCollapsed>
               {seemore ? (
                 <HashtagWrapper>
-                  <Hashtag>see more</Hashtag>
+                  <Link href="/event-details">
+                    <Hashtag>see more</Hashtag>
+                  </Link>
                   <IconWrapper>
                     <Icon name="arrow" className="hashtag-arrow" />
                   </IconWrapper>
@@ -233,6 +232,12 @@ const HashtagWrapper = styled.div`
   background: ${orangeLight};
   align-items: flex-end;
   display: inline-flex;
+  cursor: pointer;
+  transition: .15s;
+
+  &:hover{
+    background: ${ orangeDark };
+  }
 `
 
 const Hashtag = styled.p`

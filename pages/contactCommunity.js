@@ -79,6 +79,7 @@ const ContactWrapper = styled.div`
 
 const ChannelDetails = styled.div`
   display: inline-flex;
+  margin-top: 10px;
 `
 const ChannelGroup = styled.p`
   font-size: 16px;

@@ -6,6 +6,8 @@ import styled from 'styled-components'
 import fonts from '<Styles>/fonts'
 import colors from '<Styles>/colors'
 import { Icon } from '<UI>'
+import { dataArtists } from '<DATA>'
+import artists from '../../../data/artists';
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
@@ -13,11 +15,22 @@ const orangeDark = colors.orangeDark
 class CardDesc extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+    }
   }
 
-
   render() {
-    const { show } = this.props;
+    const { show, programme } = this.props;
+
+    let artistProgramme = []
+
+    // switch (programme) {
+    //   case "beginners-workshop":
+    //     artistProgramme = dataArtists.forEach((item, index) => { item.filter(type => type.programme == 'workshop' ) }) 
+    //     break;
+    //   default:
+    //     break;
+    // }
 
     return (
       <CardWrapper className={show? 'show':''}>
@@ -31,7 +44,7 @@ class CardDesc extends React.Component {
 
           <HeaderContainer >
             <ProfileWrapper>
-              { [0,1,2,3,4,5,6].map( ( item , index) => (
+              {artistProgramme.map( ( item , index) => (
                 <PeopleWrapper key={ index }>
                   <PeopleProfile  style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}>
                     <IconWrapper>

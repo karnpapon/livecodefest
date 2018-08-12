@@ -7,6 +7,7 @@ import colors from '<Styles>/colors'
 import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import { Icon } from '<UI>'
+import StackGrid from "react-stack-grid";
 
 import Footer from '<Features>/Footer'
 
@@ -38,15 +39,6 @@ class EventDetails extends React.Component {
   setInfoHide = () => {
     this.setState({ show: false })
   }
-
-  setCardClose = () => {
-
-  }
-
-  setCardOpen = () => {
-
-  }
-
 
   render() {
 
@@ -90,7 +82,10 @@ class EventDetails extends React.Component {
 
           <ImageWrapper>
             <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
-            <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
+            <TitleBwWrapper>
+              <a target="_blank" href="https://algorave.com"/>
+              <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
+            </TitleBwWrapper>
           </ImageWrapper>
 
           <DetailBox>
@@ -102,6 +97,45 @@ class EventDetails extends React.Component {
               Thorsten Sideboard, Alejandro Albornoz, tedthetrumpet, Digital Selves + more ..
             </DetailText>
           </DetailBox>
+
+          <GridWrapper>
+            <StackGrid 
+              columnWidth={150} 
+              columnWidth="25%" 
+              gutterWidth={20} 
+              gutterHeight={20}
+            >
+              { 
+                Array.from(new Array(24)).map(( item, index ) => 
+                <ArtistCardWrapper key={ index }>
+                    <ArtistDetailCardHeadBar> 
+                      Programme name
+                    </ArtistDetailCardHeadBar>
+                    <ArtistInProgramme >
+                    <NameAndProfileImgWrapper>
+                      <Link href="/artist-profile">
+                      <ArtistNameBox>
+                        <ArtistName>Name's Artist</ArtistName> 
+                        <IconWrapper>
+                          <Icon name="arrow" className="hashtag-arrow" />
+                        </IconWrapper> 
+                      </ArtistNameBox>
+                      </Link>
+                      <CardArtistProfile style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}/>
+                    </NameAndProfileImgWrapper>
+
+                        <CardArtistDetail>
+                          <ProgrammeTitle> Programme Title </ProgrammeTitle>
+                          Probably the world's first two-room Algorave, 
+                          with an international line-up of top notch live coders and algorithmic producers, 
+                          including Renick Bell + Chiho Oka, Atsushi Tadokoro, Akihiro Kubota, 
+                        </CardArtistDetail>
+                    </ArtistInProgramme>
+                </ArtistCardWrapper>
+                )
+              }
+            </StackGrid>
+          </GridWrapper>
 
         </MainBackground>
 
@@ -126,14 +160,14 @@ const MainBackground = styled.div`
 `
 
 const DetailBox = styled.div`
-  width: 830px;
+  width: 730px;
   background: ${ orangeLight};
   border: 2px solid black;
   align-self: flex-end;
   margin-right: 130px;
   z-index: 3;
   padding: 50px;
-  margin-top: 300px;
+  margin-top: 200px;
   margin-bottom: 100px;
 `
 
@@ -236,8 +270,9 @@ const TitleImg = styled.span`
     border: 2px solid black;
     background-repeat: no-repeat;
     background-size: cover;
-    width: 600px;
-    height: 350px;
+    width: 400px;
+    height: 250px;
+    margin-left: 20%;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
@@ -260,12 +295,13 @@ const TitleImgBW = styled.span`
     width: 280px;
     height: 280px;
     right: 0;
-    margin-right: 20%;
-    margin-top: -5%;
+    margin-right: 18%;
+    margin-top: -9%;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
     z-index: 1;
+    cursor: pointer;
 
   @media (max-width: 767px) {
     position: relative;
@@ -273,6 +309,10 @@ const TitleImgBW = styled.span`
     top: auto;
     margin: 0 auto;
   }
+`
+
+const TitleBwWrapper = styled.div`
+  
 `
 
 const IconWrapper = styled.div`
@@ -285,6 +325,7 @@ const IconWrapper = styled.div`
   align-items: center;
   justify-content: center;
   transition: .15s;
+  margin-left: auto;
   cursor: pointer;
     &:hover{
       background: ${ orangeDark}
@@ -360,4 +401,79 @@ const TicketWrapper = styled.div`
   width: 100%;
   justify-content: center;
   height: 50px;
+`
+
+const ArtistInProgramme = styled.div`
+  background: ${ orangeDark };
+  border: 2px solid black;
+  padding: 20px;
+`
+
+const GridWrapper = styled.div`
+  width: 100%;
+  padding: 0 130px;
+`
+
+const CardArtistDetail = styled.div`
+  font-family: ${ fonts.systemRegular};
+  width: 100%;
+  font-size: 14px;
+`
+
+const ProgrammeTitle = styled.p`
+  font-size: 20px;
+  font-weight: bolder;
+`
+
+const CardArtistProfile = styled.div`
+  background: ${ orangeLight};
+  height: 130px;
+  margin-bottom: 10px;
+  border: 2px solid;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+`
+
+const ArtistNameBox = styled.div`
+  background: ${ orangeLight};
+  border: 2px solid;
+  width: fit-content;
+  cursor: pointer;
+  top: -10px;
+  position: absolute;
+  right: 0;
+
+  &:hover{
+    background: ${ orangeDark };
+  }
+`
+
+const ArtistName = styled.p`
+  font-family: ${ fonts.systemRegular};
+  font-weight: bolder;
+  margin: 0;
+  padding: 10px;
+  padding-right: 25px;
+  padding-bottom: 0;
+`
+
+const ArtistCardWrapper = styled.div`
+  width: 100%;
+`
+
+const ArtistDetailCardHeadBar = styled.div`
+  background: ${ orangeDark };
+  border-top: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  font-family: ${ fonts.systemRegular};
+  font-weight: bolder;
+  font-size: 12px;
+  padding: 10px;
+  
+`
+
+const NameAndProfileImgWrapper = styled.div`
+  position: relative;
 `

@@ -1,4 +1,4 @@
-const dataEvent = [
+const dataEvents = [
   {
     title: 'Beginners\' Workshop',
     slug: 'beginners-workshop',
@@ -101,7 +101,7 @@ const dataEvent = [
 
 
 let dataEventName = [];
-dataEvent.forEach((item, index) => {
+dataEvents.forEach((item, index) => {
 
   // if can not find item in dataCategories then push it into.
   if (dataEventName.indexOf(item.name) === -1) {
@@ -111,4 +111,4 @@ dataEvent.forEach((item, index) => {
 
 
 
-export { dataEventName, dataEvent }
+export default  ( dataEventName, dataEvents ) 
