@@ -44,7 +44,7 @@ class CardDesc extends React.Component {
 
           <HeaderContainer >
             <ProfileWrapper>
-              {artistProgramme.map( ( item , index) => (
+              {Array.from(new Array(6)).map( ( item , index) => (
                 <PeopleWrapper key={ index }>
                   <PeopleProfile  style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}>
                     <IconWrapper>
@@ -177,7 +177,6 @@ const DateInfo = styled.p`
   font-size: 12px;
   text-decoration: underline;
   cursor: pointer;
-  transition: .15s;
   &:hover{
     color: ${orangeLight};
   }

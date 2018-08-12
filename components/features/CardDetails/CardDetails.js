@@ -181,7 +181,6 @@ const MoreInfo = styled.div`
   display: flex;
   justify-content: center;
   width: 8%;
-  transition: .15s;
   &:hover{
     cursor: pointer;
     background: ${orangeDark};
@@ -233,7 +232,6 @@ const HashtagWrapper = styled.div`
   align-items: flex-end;
   display: inline-flex;
   cursor: pointer;
-  transition: .15s;
 
   &:hover{
     background: ${ orangeDark };

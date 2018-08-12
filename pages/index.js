@@ -15,6 +15,7 @@ import Info from '<Features>/Info'
 import Header from '<Features>/Header'
 import Footer from '<Features>/Footer'
 import Scroll from 'react-scroll';
+import ReactTooltip from 'react-tooltip'
 
 const primaryBackground = colors.primary
 const orangeDark = colors.orangeDark
@@ -40,7 +41,7 @@ class Index extends React.Component {
   setInfoHide = () => {
     this.setState({ show: false })
   }
- 
+
 
   render () {
 
@@ -48,13 +49,20 @@ class Index extends React.Component {
     const { setInfoHide, setInfoShow } = this
 
     return (
-      <Element name="home">
-        <Main>
+      <Element name="home" data-tip data-for='global'>
+        <Main >
           {/* <Grid/> */}
 
           {/* <Header setInfoShow={ setInfoShow }/> */}
           <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show}/>
+
           <MainBackground>
+          <ReactTooltip id='global' aria-haspopup='true' role='example' place="bottom" className="keyboard-button">
+            <KeyboardWrapper>
+              <KeyboardButton> Ctrl </KeyboardButton> 
+              <KeyboardButton> Enter </KeyboardButton>
+            </KeyboardWrapper>
+          </ReactTooltip>
 
             {/* <Info show={show}/> */}
               <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
@@ -71,9 +79,9 @@ class Index extends React.Component {
                 </LinkScroll>
               </TitleImg>
   
-            <SectionHeader>
+            <SectionHeader >
               <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-              Livecode Festival  
+                <TitleEvent >Livecode Festival</TitleEvent>  
             </SectionHeader>
             <EventDate>
               1 - 3rd September 2018 <br/>
@@ -126,6 +134,17 @@ const MainBackground = styled.div`
   justify-content: center;
   .toplap-logo{
     font-size: 60px;
+  }
+
+  .keyboard-button{
+    color: initial;
+    background-color: transparent;
+  }
+
+  .place-bottom{
+    &::after{
+      border-bottom-color: transparent !important; 
+    }
   }
 `
 
@@ -240,4 +259,31 @@ const IconWrapper = styled.div`
     &:hover{
       background: ${ orangeDark }
     }
+`
+const TitleEvent = styled.div`
+  width: fit-content;
+  transition: .2s;
+
+  &.keyDown{
+    background: green;
+  }
+`
+
+const KeyboardWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const KeyboardButton = styled.div`
+  width: 60px;
+  height: 60px;
+  background: white;
+  border: 2px solid;
+  border-radius: 7px;
+  font-size: 20px;
+  font-weight: bolder;
+  padding: 5px;
+  margin-left: 10px;
+  font-family: ${ fonts.systemRegular};
+  margin-top: 0;
 `

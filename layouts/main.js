@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Head from 'next/head'
+import { connect } from 'react-redux'
 import Router from 'next/router'
 import styled, { injectGlobal } from 'styled-components'
 
@@ -19,19 +20,48 @@ Router.onRouteChangeError = () => {
   NProgress.done()
 }
 
-export default class Main extends Component {
+class Main extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      isCtrl: false,
+      isEval: false
+    }
+  }
+
+  keyPressStart = (e) => {
+    
+    const  { isCtrl } = this.state
+    if (e.keyCode == 91 ) {
+      this.setState({ isCtrl: true})
+    }
+    if (isCtrl && e.keyCode == 13) {
+      this.setEvalFlashing()
+    }
+  }
+
+  keyPressRelease = (e) => {
+    e.preventDefault()
+    if (e.keyCode == 91 ) {
+      this.setState({ isCtrl: false})
+    }
+  }
+
+  setEvalFlashing = () => {
+    this.setState({ isEval: true})
   }
 
   render() {
 
     const { children } = this.props
+    const { keyPressStart, keyPressRelease } = this
 
     return (
-      <MainContainerStyled>
+      <MainContainerStyled 
+        onKeyUp={(e) => keyPressRelease(e)} tabIndex="0"
+        onKeyDown={(e) => keyPressStart(e)} tabIndex="0">
         <Head>
-          <title>Live Coding Festival 2018, UK</title>
+          <title>Livecode Festival 2018, UK</title>
           <meta charSet="UTF-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
           <meta name="format-detection" content="telephone=no" />
@@ -41,7 +71,7 @@ export default class Main extends Component {
           <meta property="og:type" content="article" />
           {/* <meta property="og:image" content={`${basePath}/static/images/cover-sharing.png`} /> */}
           {/* <meta property="og:url" content={basePath} /> */}
-          <meta property="og:description" content="Live Coding Festival 2018, UK" />
+          <meta property="og:description" content="Livecode Festival 2018, UK" />
 
           <script defer src='/static/scripts/html-touch-class.js' />
           <script defer src='/static/scripts/detected-mobile-devices.js' />
@@ -52,14 +82,14 @@ export default class Main extends Component {
           <link rel='stylesheet' type='text/css' href='/static/styles/nprogress.css' />
         </Head>
 
-        {/* <Header/> */}
-
         {children}
 
       </MainContainerStyled>
     )
   }
 }
+
+export default Main
 
 const MainContainerStyled = styled.div`
 
