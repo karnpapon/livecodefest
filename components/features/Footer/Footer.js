@@ -65,15 +65,18 @@ const FooterWrapper = styled.div`
   align-items: center;
   width: 100%;
   background-color: ${ orangeLight} ;
-  transition: .15s;
+  transition: opacity .5s, transform .3s;
   padding: 12px 0;
   bottom: 0;
   opacity: 0;
-  display: none;
+  display: flex;
+  pointer-events: none;
+  transform: translateY(50%);
 
   &.eval-code{
     opacity: 1;
-    display: flex;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   

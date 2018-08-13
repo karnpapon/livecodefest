@@ -80,7 +80,6 @@ class Index extends React.Component {
         onKeyUp={(e) => this.keyPressRelease(e)} tabIndex="0"
         onKeyDown={(e) => this.keyPressStart(e)} tabIndex="0" 
         name="home" 
-        data-tip data-for='global' 
       >
         <Main >
           {/* <Grid/> */}
@@ -88,23 +87,6 @@ class Index extends React.Component {
           <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} evalCode={isEval}/>
 
           <MainBackground>
-
-            { !isEval? 
-              <ReactTooltip 
-                id='global' 
-                aria-haspopup='true' 
-                role='example' 
-                place="bottom" 
-                className="keyboard-button">
-                <KeyboardWrapper>
-                  <KeyboardButton className={ isCtrl? 'key-pressed':''}> Ctrl / Cmd </KeyboardButton> 
-                  <KeyboardButton className={isEval ? 'key-pressed' : ''}> Enter </KeyboardButton>
-                </KeyboardWrapper>
-              </ReactTooltip>
-              :
-              ''
-          }
-
 
             <SectionHeader >
               <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
@@ -115,19 +97,28 @@ class Index extends React.Component {
               <DateDetail className={isCtrl ? 'eval-code' : ''}>at Sheffield UK</DateDetail>
             </EventDate>
 
-            <TitleImg className={ isEval? 'eval-code':''} style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
-              <LinkScroll
-                activeClass="active"
-                to="programme"
-                spy={true}
-                smooth={true}
-                duration={250}
-              >
-                <IconWrapper>
-                  <Icon name="arrow-down" className="hashtag-arrow" />
-                </IconWrapper> 
-              </LinkScroll>
-            </TitleImg>
+           <CenterImageWrapper>
+            {!isEval ?
+                <TitleKeyboard>
+                  <KeyboardButton className={isCtrl ? 'key-pressed' : ''}> Ctrl / Cmd </KeyboardButton>
+                  <KeyboardButton className={isEval ? 'key-pressed' : ''}> Enter </KeyboardButton>
+                </TitleKeyboard>
+              :''
+            }
+              <TitleImg className={ isEval? 'eval-code':''} style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
+                <LinkScroll
+                  activeClass="active"
+                  to="programme"
+                  spy={true}
+                  smooth={true}
+                  duration={250}
+                >
+                  <IconWrapper>
+                    <Icon name="arrow-down" className="hashtag-arrow" />
+                  </IconWrapper> 
+                </LinkScroll>
+              </TitleImg>
+           </CenterImageWrapper>
 
             <EventDesc>
               <VerticalLine/>
@@ -189,7 +180,11 @@ const MainBackground = styled.div`
     }
   }
 `
-
+const CenterImageWrapper = styled.div`
+  position: relative;
+  justify-content: center;
+  display: flex;
+`
 
 const SectionHeader = styled.div`
   font-family: ${ fonts.systemRegular};
@@ -302,6 +297,28 @@ const TitleImg = styled.div`
 
   &.eval-code{
     opacity: 1;
+  }
+`
+
+const TitleKeyboard = styled.div`
+    margin-bottom: 25px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 200px;
+    width: 30%;
+    align-self: center;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    margin-top: 2%;
+    transition: .5s;
+
+  @media (max-width: 767px) {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0 auto;
   }
 `
 

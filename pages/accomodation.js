@@ -114,9 +114,10 @@ const Transportation = styled.div`
   width: fit-content;
   padding: 5px;
 `
-const TransportDetails = styled.p`
+const TransportDetails = styled.div`
   cursor: pointer;
   display: flex;
+  padding: 10px 0;
   a{
     color: black;
   }
