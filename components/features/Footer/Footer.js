@@ -144,6 +144,7 @@ const ContainerStyled = styled(Container)`
     display: flex;
     font-size: 40px;
     padding-left: 20px;
+    position: fixed;
   }
 `
 

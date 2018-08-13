@@ -116,7 +116,6 @@ const CardWrapper = styled.div`
 
 const HeaderContainer = styled.div`
   width: 100%;
-  height: 100%;
   background: ${ orangeLight};
   display: flex;
   border: 2px solid black;
@@ -222,6 +221,7 @@ const DescInfoCollapsed = styled.div`
 const AvenueInfo = styled.div`
   font-size: 12px;
   padding-top: 20px;
+  padding-bottom: 10px;
 `
 
 const HashtagWrapper = styled.div`

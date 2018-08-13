@@ -46,19 +46,22 @@ class Index extends React.Component {
   }
 
   keyPressStart = (e) => {
-
+    
+    // e.which, handle event in firefox.
+    const  keyboardValue = e.keyCode || e.which;
     const { isCtrl } = this.state
-    if (e.keyCode == 91) {
+    if (keyboardValue == 91 || keyboardValue == 224) {
       this.setState({ isCtrl: true })
     }
-    if (isCtrl && e.keyCode == 13) {
+    if (isCtrl && keyboardValue == 13) {
       this.setEvalFlashing()
     }
   }
 
   keyPressRelease = (e) => {
+    const  keyboardValue = e.keyCode || e.which;
     e.preventDefault()
-    if (e.keyCode == 91) {
+    if (keyboardValue == 91 || keyboardValue == 224) {
       this.setState({ isCtrl: false })
     }
   }
@@ -102,6 +105,16 @@ class Index extends React.Component {
               ''
           }
 
+
+            <SectionHeader >
+              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
+                <TitleEvent className={ isCtrl? 'eval-code':''} >Livecode Festival</TitleEvent>  
+            </SectionHeader>
+            <EventDate>
+              <DateDetail className={isCtrl ? 'eval-code' : ''}>1 - 3rd September 2018  </DateDetail>
+              <DateDetail className={isCtrl ? 'eval-code' : ''}>at Sheffield UK</DateDetail>
+            </EventDate>
+
             <TitleImg className={ isEval? 'eval-code':''} style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
               <LinkScroll
                 activeClass="active"
@@ -115,15 +128,6 @@ class Index extends React.Component {
                 </IconWrapper> 
               </LinkScroll>
             </TitleImg>
-
-            <SectionHeader >
-              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-                <TitleEvent className={ isCtrl? 'eval-code':''} >Livecode Festival</TitleEvent>  
-            </SectionHeader>
-            <EventDate>
-              <DateDetail className={isCtrl ? 'eval-code' : ''}>1 - 3rd September 2018  </DateDetail>
-              <DateDetail className={isCtrl ? 'eval-code' : ''}>at Sheffield UK</DateDetail>
-            </EventDate>
 
             <EventDesc>
               <VerticalLine/>
@@ -274,7 +278,6 @@ const IconHeader = styled.div`
 
 
 const TitleImg = styled.div`
-    position: absolute;
     margin-bottom: 25px;
     border: 2px solid black;
     background-repeat: no-repeat;

@@ -95,7 +95,6 @@ const HeaderContainer = styled.div`
   width: 100%;
   height: auto;
   background: ${ orangeDark};
-  display: flex;
   border: 2px solid black;
   flex-direction: column;
   justify-content: center;
