@@ -7,7 +7,6 @@
 
 // import { createStore, applyMiddleware, compose } from 'redux'
 // import thunk from 'redux-thunk'
-// import { apiMiddleware } from 'redux-api-middleware'
 
 // import rootReducer from '../reducers'
 
@@ -19,7 +18,6 @@
 // const configureStore = (initialState) => {
 //   const middlewares = [
 //     thunk,
-//     apiMiddleware,
 //   ]
 
 //   const store = createStore(

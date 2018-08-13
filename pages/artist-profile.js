@@ -53,7 +53,7 @@ class ArtistProfile extends React.Component {
           <style dangerouslySetInnerHTML={{ __html: stylesheet }} />
         </Head> */}
 
-        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} />
+        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} evalCode={true} />
         <MainBackground>
 
 

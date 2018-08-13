@@ -70,7 +70,7 @@ class EventDetails extends React.Component {
         </InfoWrapper>
       </TicketWrapper>
 
-        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} />
+        <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} evalCode={true}/>
         <MainBackground>
 
 

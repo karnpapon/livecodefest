@@ -18,11 +18,11 @@ const LinkScroll = Scroll.Link;
 class Footer extends React.Component {
 
   render(){
-    const { show, setInfoShow, setInfoHide } = this.props
+    const { show, setInfoShow, setInfoHide, evalCode } = this.props
 
     return (
 
-      <FooterWrapper>
+      <FooterWrapper className={ evalCode? 'eval-code':''}>
 
   
         <FooterContainerInfo>
@@ -61,7 +61,6 @@ const FooterWrapper = styled.div`
   position: fixed;
   height: 40px;
   z-index: 999;
-  display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -69,6 +68,13 @@ const FooterWrapper = styled.div`
   transition: .15s;
   padding: 12px 0;
   bottom: 0;
+  opacity: 0;
+  display: none;
+
+  &.eval-code{
+    opacity: 1;
+    display: flex;
+  }
 
   
 `

@@ -24,42 +24,16 @@ class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isCtrl: false,
-      isEval: false
     }
   }
 
-  keyPressStart = (e) => {
-    
-    const  { isCtrl } = this.state
-    if (e.keyCode == 91 ) {
-      this.setState({ isCtrl: true})
-    }
-    if (isCtrl && e.keyCode == 13) {
-      this.setEvalFlashing()
-    }
-  }
-
-  keyPressRelease = (e) => {
-    e.preventDefault()
-    if (e.keyCode == 91 ) {
-      this.setState({ isCtrl: false})
-    }
-  }
-
-  setEvalFlashing = () => {
-    this.setState({ isEval: true})
-  }
 
   render() {
 
     const { children } = this.props
-    const { keyPressStart, keyPressRelease } = this
 
     return (
-      <MainContainerStyled 
-        onKeyUp={(e) => keyPressRelease(e)} tabIndex="0"
-        onKeyDown={(e) => keyPressStart(e)} tabIndex="0">
+      <MainContainerStyled >
         <Head>
           <title>Livecode Festival 2018, UK</title>
           <meta charSet="UTF-8" />
@@ -211,7 +185,6 @@ injectGlobal`
           width: 50px;
           height: 4px;
           opacity: 1;
-          background-color: ${colors.slickLabel};
 
           @media (max-width: 767px) {
             width: 30px;
@@ -229,7 +202,6 @@ injectGlobal`
           left: 0;
           width: 100%;
           height: 4px;
-          background-color: ${colors.slickLabelActive};
           transform: scale(0, 1);
           transform-origin: left center;
         }

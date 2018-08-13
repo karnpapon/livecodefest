@@ -8,6 +8,7 @@ import Grid from '<Features>/Grid'
 import { Icon } from '<UI>'
 
 import Programme from './programme'
+import Promo from './promo'
 import Accomodation from './accomodation';
 import ContactAndCommunity from './contactCommunity';
 import CollabAndSponsor from './collabAndSponsor';
@@ -31,7 +32,9 @@ class Index extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      show: false
+      show: false,
+      isCtrl: false,
+      isEval: false
     }
   }
 
@@ -42,50 +45,84 @@ class Index extends React.Component {
     this.setState({ show: false })
   }
 
+  keyPressStart = (e) => {
+
+    const { isCtrl } = this.state
+    if (e.keyCode == 91) {
+      this.setState({ isCtrl: true })
+    }
+    if (isCtrl && e.keyCode == 13) {
+      this.setEvalFlashing()
+    }
+  }
+
+  keyPressRelease = (e) => {
+    e.preventDefault()
+    if (e.keyCode == 91) {
+      this.setState({ isCtrl: false })
+    }
+  }
+
+  setEvalFlashing = () => {
+    this.setState({ isEval: true })
+  }
 
   render () {
 
-    const { show } = this.state
+    const { show, isEval, isCtrl } = this.state
     const { setInfoHide, setInfoShow } = this
 
     return (
-      <Element name="home" data-tip data-for='global'>
+      <Element
+        onKeyUp={(e) => this.keyPressRelease(e)} tabIndex="0"
+        onKeyDown={(e) => this.keyPressStart(e)} tabIndex="0" 
+        name="home" 
+        data-tip data-for='global' 
+      >
         <Main >
           {/* <Grid/> */}
 
-          {/* <Header setInfoShow={ setInfoShow }/> */}
-          <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show}/>
+          <Footer setInfoShow={setInfoShow} setInfoHide={setInfoHide} show={show} evalCode={isEval}/>
 
           <MainBackground>
-          <ReactTooltip id='global' aria-haspopup='true' role='example' place="bottom" className="keyboard-button">
-            <KeyboardWrapper>
-              <KeyboardButton> Ctrl </KeyboardButton> 
-              <KeyboardButton> Enter </KeyboardButton>
-            </KeyboardWrapper>
-          </ReactTooltip>
 
-            {/* <Info show={show}/> */}
-              <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
-                <LinkScroll
-                  activeClass="active"
-                  to="programme"
-                  spy={true}
-                  smooth={true}
-                  duration={250}
-                >
-                  <IconWrapper>
-                    <Icon name="arrow-down" className="hashtag-arrow" />
-                  </IconWrapper> 
-                </LinkScroll>
-              </TitleImg>
-  
+            { !isEval? 
+              <ReactTooltip 
+                id='global' 
+                aria-haspopup='true' 
+                role='example' 
+                place="bottom" 
+                className="keyboard-button">
+                <KeyboardWrapper>
+                  <KeyboardButton className={ isCtrl? 'key-pressed':''}> Ctrl / Cmd </KeyboardButton> 
+                  <KeyboardButton className={isEval ? 'key-pressed' : ''}> Enter </KeyboardButton>
+                </KeyboardWrapper>
+              </ReactTooltip>
+              :
+              ''
+          }
+
+            <TitleImg className={ isEval? 'eval-code':''} style={{ backgroundImage: `url("static/images/computer.jpg")` }}>
+              <LinkScroll
+                activeClass="active"
+                to="programme"
+                spy={true}
+                smooth={true}
+                duration={250}
+              >
+                <IconWrapper>
+                  <Icon name="arrow-down" className="hashtag-arrow" />
+                </IconWrapper> 
+              </LinkScroll>
+            </TitleImg>
+
             <SectionHeader >
               <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
-                <TitleEvent >Livecode Festival</TitleEvent>  
+                <TitleEvent className={ isCtrl? 'eval-code':''} >Livecode Festival</TitleEvent>  
             </SectionHeader>
             <EventDate>
-              1 - 3rd September 2018 <br/>
-              at Sheffield UK
+              <DateDetail className={isCtrl ? 'eval-code' : ''}>1 - 3rd September 2018  </DateDetail>
+              <DateDetail className={isCtrl ? 'eval-code' : ''}>at Sheffield UK</DateDetail>
             </EventDate>
 
             <EventDesc>
@@ -101,21 +138,21 @@ class Index extends React.Component {
               </DescWrapper>
             </EventDesc>
 
-            <EventPromo>
-              Three days of music <br/>
-              visuals <br/>
-              talks <br/>
-              demos <br/>
-              and workshops.
-            </EventPromo>
           </MainBackground>
 
 
-
-          <Programme/>
-          <Accomodation/>
-          <ContactAndCommunity/>
-          <CollabAndSponsor/>
+          {
+            isEval? 
+            <div>
+              <Promo evalCode={isCtrl}/>
+              <Programme/>
+              <Accomodation/>
+              <ContactAndCommunity/>
+              <CollabAndSponsor/>
+            </div>
+            :
+            ''
+          }
         </Main> 
       </Element>
     )
@@ -128,10 +165,11 @@ export default Index;
 const MainBackground = styled.div`
   display: flex;
   width: 100%;
-  height: 140vh;
+  height: 100vh;
   background-color: ${ primaryBackground};
   flex-direction: column;
   justify-content: center;
+
   .toplap-logo{
     font-size: 60px;
   }
@@ -160,10 +198,22 @@ const SectionHeader = styled.div`
 `
 
 const EventDate = styled.div`
-  font-family: ${ fonts.systemRegular};
-  font-size: 18px;
   padding-left: 130px;
   line-height: 1.5;
+  padding-top: 20px;
+`
+
+const DateDetail = styled.p`
+  font-family: ${ fonts.systemRegular};
+  font-size: 18px;
+  width: fit-content;
+  transition: .2s;
+  margin: 0;
+  background: transparent;
+
+  &.eval-code{
+    background: ${ orangeDark };
+  }
 `
 
 const EventDesc = styled.div`
@@ -173,6 +223,7 @@ const EventDesc = styled.div`
   margin-top: auto;
   line-height: 1.5;
   display: flex;
+  margin-bottom: 60px;
 `
 
 const EventPromo = styled.div`
@@ -235,13 +286,19 @@ const TitleImg = styled.div`
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
-    margin-top: -8%;
+    margin-top: 2%;
+    transition: .5s;
+    opacity: 0;
 
   @media (max-width: 767px) {
     position: relative;
     left: auto;
     top: auto;
     margin: 0 auto;
+  }
+
+  &.eval-code{
+    opacity: 1;
   }
 `
 
@@ -263,9 +320,10 @@ const IconWrapper = styled.div`
 const TitleEvent = styled.div`
   width: fit-content;
   transition: .2s;
+  background: transparent;
 
-  &.keyDown{
-    background: green;
+  &.eval-code{
+    background: ${ orangeDark};
   }
 `
 
@@ -286,4 +344,10 @@ const KeyboardButton = styled.div`
   margin-left: 10px;
   font-family: ${ fonts.systemRegular};
   margin-top: 0;
+  transition: font-size .05s;
+
+  &.key-pressed{
+    background: ${ orangeDark};
+    font-size: 16px;
+  }
 `
