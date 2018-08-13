@@ -49,8 +49,10 @@ class Index extends React.Component {
     
     // e.which, handle event in firefox.
     const  keyboardValue = e.keyCode || e.which;
+    const shiftValue = 16
+
     const { isCtrl } = this.state
-    if (keyboardValue == 91 || keyboardValue == 224) {
+    if (keyboardValue == shiftValue ) {
       this.setState({ isCtrl: true })
     }
     if (isCtrl && keyboardValue == 13) {
@@ -60,8 +62,9 @@ class Index extends React.Component {
 
   keyPressRelease = (e) => {
     const  keyboardValue = e.keyCode || e.which;
+    const shiftValue = 16
     e.preventDefault()
-    if (keyboardValue == 91 || keyboardValue == 224) {
+    if (keyboardValue == shiftValue ) {
       this.setState({ isCtrl: false })
     }
   }
@@ -100,7 +103,7 @@ class Index extends React.Component {
            <CenterImageWrapper>
             {!isEval ?
                 <TitleKeyboard>
-                  <KeyboardButton className={isCtrl ? 'key-pressed' : ''}> Ctrl / Cmd </KeyboardButton>
+                  <KeyboardButton className={isCtrl ? 'key-pressed' : ''}> Shift </KeyboardButton>
                   <KeyboardButton className={isEval ? 'key-pressed' : ''}> Enter </KeyboardButton>
                 </TitleKeyboard>
               :''
