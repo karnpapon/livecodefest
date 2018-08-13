@@ -45,6 +45,9 @@ class CollabAndSponsor extends React.Component {
               <a target="_blank" href="https://artscouncil.org.uk">
                 <SponsorLogo style={{ backgroundImage: `url("static/images/artscouncil.svg")` }} />
               </a>
+              <a target="_blank" href="https://erc.europa.eu">
+                <SponsorLogo style={{ backgroundImage: `url("static/images/erc.png")` }} />
+              </a>
 
             </CollaboratorsAndSponsors>
           </ContactWrapper>

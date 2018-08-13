@@ -57,16 +57,13 @@ class EventDetails extends React.Component {
         <InfoWrapper>
           <TicketInfo>
             <Icon name="ticket" className="ticket-icon" />
-            <a target="_blank" href="">Booking</a>
+              <a target="_blank" href="https://tickets.partyforthepeople.org/events/4156-algorave-sheffield">Tickets now available</a>
           </TicketInfo>
-          {!isOpen ?
-            (<MoreInfo isOpen={isOpen} onClick={setCardOpen}>
-              <Icon name="arrow-down" />
-            </MoreInfo>) :
-            (<MoreInfo isOpen={isOpen} onClick={setCardClose}>
-              <Icon name="close-btn" className="close-btn" />
-            </MoreInfo>)
-          }
+            <Link href="/">
+              <MoreInfo>
+                <Icon name="close-btn" className="close-btn" />
+              </MoreInfo>
+            </Link>
         </InfoWrapper>
       </TicketWrapper>
 
@@ -81,7 +78,13 @@ class EventDetails extends React.Component {
           </SectionHeader>
 
           <ImageWrapper>
-            <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
+            <ProgrammeTitleBox> 
+              <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
+              <DetailWrapper>
+                <ProgrammeDateText>1 September 2018, 8 pm - 2 am</ProgrammeDateText>
+                <ProgrammeTitleText> Algorave </ProgrammeTitleText>
+              </DetailWrapper>
+            </ProgrammeTitleBox>
             <TitleBwWrapper>
               <a target="_blank" href="https://algorave.com"/>
               <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
@@ -170,6 +173,39 @@ const DetailBox = styled.div`
   margin-top: 200px;
   margin-bottom: 100px;
 `
+const ProgrammeTitleBox = styled.div`
+  font-family: ${ fonts.systemRegular};
+  font-weight: bolder;
+  width: 300px;
+  align-self: flex-end;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  margin-left: 100px;
+  flex-direction: column;
+`
+
+const ProgrammeTitleText = styled.p`
+  margin: 0;
+  width: fit-content;
+  font-size: 42px;
+  color: white;
+  background: black;
+`
+
+
+const DetailWrapper = styled.div`
+  z-index: 4;
+`
+
+const ProgrammeDateText = styled.p`
+  margin-bottom: 10px;
+  width: fit-content;
+  font-size: 16px;
+  color: white;
+  background: black;
+`
+
 
 const DetailText = styled.p`
   font-family: ${ fonts.systemRegular};
@@ -261,7 +297,6 @@ const IconHeader = styled.div`
 const ImageWrapper = styled.div`
   position: relative;
   margin-left: 130px;
-  margin-top: 40px;
 `
 
 
@@ -272,11 +307,11 @@ const TitleImg = styled.span`
     background-size: cover;
     width: 400px;
     height: 250px;
-    margin-left: 20%;
+    margin-top: 150px;
+    margin-left: 5%;
     justify-content: flex-end;
     align-items: flex-end;
     display: flex;
-    z-index: 2;
 
   @media (max-width: 767px) {
     position: relative;
