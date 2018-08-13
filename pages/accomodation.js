@@ -29,16 +29,21 @@ class Accomodation extends React.Component {
             <TransportWrapper>
               <Transportation> Coach </Transportation>
               <TransportDetails> 
-                <a target="_blank" href="https://uk.megabus.com">Megabus </a> /<a target="_blank" href="http://www.nationalexpress.com">National express</a>
+                <a target="_blank" href="https://uk.megabus.com">Megabus </a> 
+                <div className="no-underline">/</div>
+                <a target="_blank" href="http://www.nationalexpress.com">National express</a>
               </TransportDetails>
 
               <Transportation> Train </Transportation>
               <TransportDetails> 
-                <a target="_blank" href="https://www.gwr.com">GWR</a> / <a target="_blank" href="https://www.thetrainline.com"> trainline</a>
+                <a target="_blank" href="https://www.gwr.com">GWR</a> 
+                <div className="no-underline">/</div>
+                <a target="_blank" href="https://www.thetrainline.com"> trainline</a>
               </TransportDetails>
-              <DetailWithNoLink>  
-                 Megabus have some cheaper train fares from e.g. London.
-              </DetailWithNoLink>
+              <TransportDetails>  
+                <a target="_blank" href="https://uk.megabus.com">Megabus</a> 
+                <div className="no-underline">have some cheaper train fares from e.g. London.</div>
+              </TransportDetails>
 
               <Transportation> Nearest airports </Transportation>
               <DetailWithNoLink> 
@@ -47,7 +52,12 @@ class Accomodation extends React.Component {
               </DetailWithNoLink>
 
               <Transportation> Hotels/hostels/rooms</Transportation>
-              <TransportDetails><a target="_blank" href="http://www.booking.com/searchresults.html?city=-2607573&aid=1357706&checkin_monthday=8&checkin_month=11&checkin_year=2017&checkout_monthday=13&checkout_month=11&checkout_year=2017&no_rooms=1&group_adults=1">booking.com </a> / <a target="_blank" href="https://http://airbnb.com"> airbnb</a></TransportDetails>
+              <TransportDetails>
+                <a target="_blank" href="http://www.booking.com/searchresults.html?city=-2607573&aid=1357706&checkin_monthday=8&checkin_month=11&checkin_year=2017&checkout_monthday=13&checkout_month=11&checkout_year=2017&no_rooms=1&group_adults=1">
+                  booking.com 
+                </a> 
+                <div className="no-underline">/</div>
+                <a target="_blank" href="https://http://airbnb.com"> airbnb</a></TransportDetails>
 
 
             </TransportWrapper>
@@ -105,13 +115,20 @@ const Transportation = styled.div`
   padding: 5px;
 `
 const TransportDetails = styled.p`
-  text-decoration: underline;
   cursor: pointer;
+  display: flex;
   a{
     color: black;
   }
   a:hover{
     color: ${ orangeDark };
+  }
+
+  .no-underline{
+    text-decoration: none;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: text;
   }
 `
 
