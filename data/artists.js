@@ -607,9 +607,9 @@ const dataArtists = [
   {
     name: 'Uiae',
 
-    imgProfile: '/static/images/artist/.jpg',
-    imgDesc: '/static/images/artist/_imgDesc.jpg',
-    imgDescBit: '/static/images/artist/_imgDescBit.jpg',
+    imgProfile: '/static/images/artist/Uiae.jpg',
+    imgDesc: '/static/images/artist/Uiae_imgDesc.jpg',
+    imgDescBit: '/static/images/artist/Uiae_imgDescBit.jpg',
     website: 'https://uiae.de/',
     social: [{ twitter: 'https://twitter.com/uiae' }, {github: ''}] ,
     twitterName: '@uiae',
@@ -770,9 +770,9 @@ const dataArtists = [
   {
     name: 'Shelly Knotts and Nick Collins',
 
-    imgProfile: '/static/images/artist/ShellyKnottsandNickCollins.jpg',
-    imgDesc: '/static/images/artist/ShellyKnottsandNickCollins_imgDesc.jpg',
-    imgDescBit: '/static/images/artist/ShellyKnottsandNickCollins_imgDescBit.jpg',
+    imgProfile: '/static/images/artist/ShellyKnotts.jpg',
+    imgDesc: '/static/images/artist/ShellyKnotts_imgDesc.jpg',
+    imgDescBit: '/static/images/artist/ShellyKnotts_imgDescBit.jpg',
     website: '',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',

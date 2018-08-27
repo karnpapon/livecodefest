@@ -8,6 +8,7 @@ import colors from '<Styles>/colors'
 import { Icon } from '<UI>'
 import { dataArtists } from '<DATA>'
 import artists from '../../../data/artists';
+import { Z_FILTERED } from 'zlib';
 
 const orangeLight = colors.orangeLight
 const orangeDark = colors.orangeDark
@@ -32,6 +33,17 @@ class CardDesc extends React.Component {
     //     break;
     // }
 
+    dataArtists.forEach(item => {
+      item.programme.filter(type => {
+        if(type.programme1 == 'algorave'){
+          artistProgramme.push(item)
+        } else if(type.programme2 == 'algorave') {
+          artistProgramme.push(item)
+        } else {
+        }
+      })
+    })
+
     return (
       <CardWrapper className={show? 'show':''}>
         
@@ -44,15 +56,15 @@ class CardDesc extends React.Component {
 
           <HeaderContainer >
             <ProfileWrapper>
-              {Array.from(new Array(6)).map( ( item , index) => (
+              {artistProgramme.map( ( item , index) => (
                 <PeopleWrapper key={ index }>
-                  <PeopleProfile  style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}>
+                  <PeopleProfile  style={{ backgroundImage: `url("${item.imgProfile}")` }}>
                     <IconWrapper>
                       <Icon name="arrow" className="hashtag-arrow" />
                     </IconWrapper> 
                   </PeopleProfile>
                   <Link href="/artist-profile">
-                  <DateInfo> Artist Name </DateInfo>
+                  <DateInfo>{ item.name} </DateInfo>
                   </Link>
                 </PeopleWrapper>
               )) 
@@ -234,5 +246,6 @@ const IconWrapper = styled.div`
 
 const PeopleWrapper = styled.div`
   height: 100%;
+  width: 70px;
   :nth-child(even){ margin-right: 10px; margin-left: 10px; }
 `
