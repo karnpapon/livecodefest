@@ -2,6 +2,7 @@
 dist
 build
 .next
+out
 
 # dependencies
 node_modules
