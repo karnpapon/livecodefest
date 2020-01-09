@@ -28,25 +28,39 @@ class CollabAndSponsor extends React.Component {
             <SectionHeader>Collaborators <br/> & Sponsors</SectionHeader>
             <CollaboratorsAndSponsors>
               <a target="_blank" href="http://access-space.org">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/access-space.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/access-space.png"></img>
+                </SponsorLogo>
               </a>
               <a target="_blank" href="http://algorave.com">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/algorave.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/algorave.png"></img>
+                </SponsorLogo>
               </a>
               <a target="_blank" href="http://penelope.hypotheses.org">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/dajf.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/dajf.png"></img>
+                </SponsorLogo>
               </a>
               <a target="_blank" href="http://dajf.org.uk">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/gbsf.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/gbsf.png"></img>
+                </SponsorLogo> 
               </a>
               <a target="_blank" href="http://www.gbsf.org.uk">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/penelope.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/penelope.png"></img>
+                </SponsorLogo> 
               </a>
               <a target="_blank" href="https://artscouncil.org.uk">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/artscouncil.svg")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/artscouncil.svg"></img>
+                </SponsorLogo> 
               </a>
               <a target="_blank" href="https://erc.europa.eu">
-                <SponsorLogo style={{ backgroundImage: `url("static/images/erc.png")` }} />
+                <SponsorLogo>
+                  <img src="/static/images/erc.png"></img>
+                </SponsorLogo> 
               </a>
 
             </CollaboratorsAndSponsors>
@@ -99,12 +113,14 @@ const CollaboratorsAndSponsors = styled.div`
 `
 
 const SponsorLogo = styled.div`
-    width: 150px;
-    height: 50px;
-    margin-bottom: 25px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
+  width: 150px;
+  height: 50px;
+  margin-bottom: 25px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+
+  img{ height: inherit;}
 
   @media (max-width: 767px) {
     position: relative;

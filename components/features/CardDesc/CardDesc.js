@@ -25,22 +25,11 @@ class CardDesc extends React.Component {
 
     let artistProgramme = []
 
-    // switch (programme) {
-    //   case "beginners-workshop":
-    //     artistProgramme = dataArtists.forEach((item, index) => { item.filter(type => type.programme == 'workshop' ) }) 
-    //     break;
-    //   default:
-    //     break;
-    // }
-
     dataArtists.forEach(item => {
-      item.programme.filter(type => {
-        if(type.programme1 == 'algorave'){
+      item.programme.some(type => {
+        if(type.title == programme){
           artistProgramme.push(item)
-        } else if(type.programme2 == 'algorave') {
-          artistProgramme.push(item)
-        } else {
-        }
+        } 
       })
     })
 
@@ -63,7 +52,7 @@ class CardDesc extends React.Component {
                       <Icon name="arrow" className="hashtag-arrow" />
                     </IconWrapper> 
                   </PeopleProfile>
-                  <Link href="/artist-profile">
+                  <Link href={ `/artist-profile/${item.slug}` }>
                   <DateInfo>{ item.name} </DateInfo>
                   </Link>
                 </PeopleWrapper>

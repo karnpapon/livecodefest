@@ -16,29 +16,35 @@ const Element = Scroll.Element;
 
 class AppearsIn extends React.Component {
   static async getInitialProps({ query, res }) {
-    return true
+    let querySlug = query
+    return querySlug
   }
 
 
   render() {
 
+    const { artist } = this.props
+
+    // const artist = artist.filter(item => item.slug == this.props.slug)[0]
+
     return (
       <Element name="programme">
         <MainBackground>
-          {/* <Grid/> */}
           <ProgrammeWrapper>
             <SectionHeader>Appearing In...</SectionHeader>
             <CardWrapper>
-              {dataEvents.map((item, index) =>
-                <CardDetails
-                  eventInfo={item}
-                  key={index}
-                  seemore={item.slug == 'toplab-moot' || item.slug == 'algorave' ? true : false}
-                />
-              )
+              {
+                artist.programme.map( program => 
+                  dataEvents.filter(data => program.title == data.programme).map((item, index) =>
+                    <CardDetails
+                      eventInfo={item}
+                      key={index}
+                      seemore={item.slug == 'toplab-moot' || item.slug == 'algorave' ? true : false}
+                    />
+                  )
+                )
               }
             </CardWrapper>
-            {/* <CardDesc/> */}
           </ProgrammeWrapper>
         </MainBackground>
       </Element>

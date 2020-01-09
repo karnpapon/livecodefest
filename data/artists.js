@@ -1,14 +1,14 @@
 const dataArtists = [
   {
     name: 'Lucy Cheesman',
-
+    slug: 'lucy-cheesman',
     imgProfile: '/static/images/artist/LucyCheesman.jpg',
     imgDesc: '/static/images/artist/LucyCheesman_imgDesc.jpg',
     imgDescBit: '/static/images/artist/LucyCheesman_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/abelstaites' }, {github: 'https://heavy-lifting.github.io/'}] ,
     twitterName: '@abelstaites',
-    programme: [{programme1: 'workshop'}, {programme2:''}],
+    programme: [{title: 'workshop'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: '',
@@ -30,14 +30,14 @@ const dataArtists = [
 
   {
     name: 'Joanne Armitage',
-
+    slug: 'joanne-armitage',
     imgProfile: '/static/images/artist/JoanneArmitage.jpg',
     imgDesc: '/static/images/artist/JoanneArmitage_imgDesc.jpg',
     imgDescBit: '/static/images/artist/JoanneArmitage_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/joannnne' }, {github: 'https://joannnne.github.io/'}] ,
     twitterName: '@joannnne',
-    programme: [{programme1: 'workshop'}, {programme2:''}],
+    programme: [{title: 'workshop'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: '',
@@ -59,14 +59,14 @@ const dataArtists = [
 
   {
     name: 'Shelly Knotts',
-
+    slug: 'shelly-knotts',
     imgProfile: '/static/images/artist/ShellyKnotts.jpg',
     imgDesc: '/static/images/artist/ShellyKnotts_imgDesc.jpg',
     imgDescBit: '/static/images/artist/ShellyKnotts_imgDescBit.jpg',
     website: 'https://en.wikipedia.org/wiki/Shelly_Knotts',
     social: [{ twitter: 'https://twitter.com/shelly_knotts' }, {github: ''}] ,
     twitterName: '@shelly_knotts',
-    programme: [{programme1: 'workshop'}, {programme2:''}],
+    programme: [{title: 'workshop'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: '',
@@ -91,14 +91,14 @@ const dataArtists = [
 
   {
     name: 'Hellocatfood',
-
+    slug: 'hellocatfood',
     imgProfile: '/static/images/artist/Hellocatfood.jpg',
     imgDesc: '/static/images/artist/Hellocatfood_imgDesc.jpg',
     imgDescBit: '/static/images/artist/Hellocatfood_imgDescBit.jpg',
     website: 'http://hellocatfood.com/',
     social: [{ twitter: 'https://twitter.com/hellocatfood' }, {github: ''}] ,
     twitterName: '@hellocatfood',
-    programme: [{programme1: 'meetup'}, {programme2:'algorave'}],
+    programme: [{title: 'meetup'}, {title:'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: '',
@@ -120,13 +120,14 @@ const dataArtists = [
 
   {
     name: 'Algobabez',
+    slug: 'algobabez',
     imgProfile: '/static/images/artist/Algobabez.jpg',
     imgDesc: '/static/images/artist/Algobabez_imgDesc.jpg',
     imgDescBit: '/static/images/artist/Algobabez_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/algobbz' }, {github: ''}] ,
     twitterName: '@algobbz',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: 'The quintessential algorave duo representing Leeds x Newcastle with quantised noise for dancing.',
@@ -147,14 +148,14 @@ const dataArtists = [
 
   {
     name: 'Chiho Oka and Renick Bell',
-
+    slug: 'chiho-n-renick',
     imgProfile: '/static/images/artist/ChihoOkaandRenickBell.jpg',
     imgDesc: '/static/images/artist/ChihoOkaandRenickBell_imgDesc.jpg',
     imgDescBit: '/static/images/artist/ChihoOkaandRenickBell_imgDescBit.jpg',
     website: '',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: `Chiho + Renick are experimenting with minimal synth patterns 
@@ -162,17 +163,17 @@ const dataArtists = [
     live coding system and sends it to Chiho, who uses it to trigger synths 
     and note patterns live-coded in SuperCollider.`,
     programmeDesc2: '',
-    descriptionDetail:`Chiho Oka and Renick Bell began collaborating in May 2018. 
-    Their first performance together was the June 2018 algorave in Tokyo.
+    descriptionDetail:`<b>Chiho Oka and Renick Bell began collaborating in May 2018. 
+    Their first performance together was the June 2018 algorave in Tokyo.</b>
     <br/><br/>
-    Chiho Oka is a composer at Tochka in Senjusekiya, Adachi Ward, Tokyo. 
+    <a href="https://okachiho.com/">Chiho Oka</a> is a composer at Tochka in Senjusekiya, Adachi Ward, Tokyo. 
     She is composing and performing electronic music and sound art using 
     programming, laptops, and everyday items. She is a member of the Tokyo-based 
     Ensemble for Experimental Music and Theater, which is performing 
     experimental music, such as that of Fluxus, from the 1960s to the 
-    present. <a href="https://okachiho.com/>"okachiho.com</a>
+    present.
     <br/><br/>
-    Renick Bell [US] is a computer musician, programmer, and teacher 
+    <a href="http://renickbell.net">Renick Bell</a>[US] is a computer musician, programmer, and teacher 
     who has lived in Tokyo, Japan since 2006. He has released music 
     on several labels, including Lee Gamble’s UIQ, Rabit's Halcyon Veil, 
     and Quantum Natives, with another album forthcoming on Seagrave, 
@@ -182,7 +183,7 @@ const dataArtists = [
     the Haskell programming language. He graduated from the doctoral 
     program at Tama Art University in Tokyo, Japan. Originally from West Texas, 
     he previously lived in New York City and Taipei, Taiwan. 
-    <a href="http://renickbell.net">renickbell.net</a>`,
+    `,
     embed: [
       { youtube: 'https://www.youtube.com/embed/Upe2qqurja8'},
       { soundcloud: ''},
@@ -192,14 +193,14 @@ const dataArtists = [
 
   {
     name: 'TYPE',
-
+    slug: 'type',
     imgProfile: '/static/images/artist/TYPE.jpg',
     imgDesc: '/static/images/artist/TYPE_imgDesc.jpg',
     imgDescBit: '/static/images/artist/TYPE_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/TYPEensemble' }, {github: ''}] ,
     twitterName: '@TYPEensemble',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: `Working collaboratively in a shared text buffer 
@@ -223,14 +224,14 @@ const dataArtists = [
 
   {
     name: 'Neil C Smith',
-
+    slug: 'neil-c-smith',
     imgProfile: '/static/images/artist/NeilCSmith.jpg',
     imgDesc: '/static/images/artist/NeilCSmith_imgDesc.jpg',
     imgDescBit: '/static/images/artist/NeilCSmith_imgDescBit.jpg',
     website: 'https://www.neilcsmith.net',
     social: [{ twitter: 'https://twitter.com/neilcsmith_net' }, {github: ''}] ,
     twitterName: '@neilcsmith_net',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'AMEN $ Mother Function',
     programmeTitle2: 'PraxisLIVE - Write Now, Run Anytime',
     programmeDesc: `One sample, one function – a live-coded, 
@@ -270,14 +271,14 @@ const dataArtists = [
 
   {
     name: 'Claude Heiland-Allen',
-
+    slug: 'claude-heiland-allen',
     imgProfile: '/static/images/artist/ClaudeHeiland-Allen.jpg',
     imgDesc: '/static/images/artist/ClaudeHeiland-Allen_imgDesc.jpg',
     imgDescBit: '/static/images/artist/ClaudeHeiland-Allen_imgDescBit.jpg',
     website: 'https://mathr.co.uk/clive/',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'mathr',
     programmeTitle2: 'Live-coding audio in C',
     programmeDesc: 'Live-coding audio in C, mathr weaves drones and beats into noisy chaos.',
@@ -298,14 +299,14 @@ const dataArtists = [
 
   {
     name: 'Deerful',
-
+    slug: 'deerful',
     imgProfile: '/static/images/artist/Deerful.jpg',
     imgDesc: '/static/images/artist/Deerful_imgDesc.jpg',
     imgDescBit: '/static/images/artist/Deerful_imgDescBit.jpg',
     website: 'http://deerful.com',
     social: [{ twitter: 'https://twitter.com/deer_ful' }, {github: ''}] ,
     twitterName: '@deer_ful',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: `Emma will be debuting a set of brand new, 
@@ -328,14 +329,14 @@ const dataArtists = [
 
   {
     name: 'Thorsten Sideb0ard',
-
+    slug: 'thorsten',
     imgProfile: '/static/images/artist/ThorstenSideb0ard.jpg',
     imgDesc: '/static/images/artist/ThorstenSideb0ard_imgDesc.jpg',
     imgDescBit: '/static/images/artist/ThorstenSideb0ard_imgDescBit.jpg',
     website: 'http://theb0ardside.com/',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: '',
     programmeTitle2: 'Practical Granular Synthesis For Fun and Profit',
     programmeDesc: `Thorsten will be live with Soundb0ard, 
@@ -362,14 +363,14 @@ const dataArtists = [
 
   {
     name: 'Atsushi Tadokoro',
-
+    slug: 'atsushi-tadokoro',
     imgProfile: '/static/images/artist/AtsushiTadokoro.jpg',
     imgDesc: '/static/images/artist/AtsushiTadokoro_imgDesc.jpg',
     imgDescBit: '/static/images/artist/AtsushiTadokoro_imgDescBit.jpg',
     website: 'http://yoppa.org/',
     social: [{ twitter: 'https://twitter.com/tadokoro' }, {github: ''}] ,
     twitterName: '@tadokoro',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: '',
     programmeTitle2: 'A/V live coding techniques with TidalCycles + openFrameworks',
     programmeDesc: 'Intensive audio/visual dancefloor electronics, live coded with TidalCycles + openFrameworks.',
@@ -388,14 +389,14 @@ const dataArtists = [
 
   {
     name: 'Simon Blackmore',
-
+    slug: 'simon-blackmore',
     imgProfile: '/static/images/artist/SimonBlackmore.jpg',
     imgDesc: '/static/images/artist/SimonBlackmore_imgDesc.jpg',
     imgDescBit: '/static/images/artist/SimonBlackmore_imgDescBit.jpg',
     website: 'http://www.simonblackmore.net/',
     social: [{ twitter: 'https://twitter.com/simonblackmore_' }, {github: ''}] ,
     twitterName: '@simonblackmore_',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'slow signals',
     programmeTitle2: 'Live coding with rhythm',
     programmeDesc: `This performance will explore live coding through physical rhythm. 
@@ -432,14 +433,14 @@ const dataArtists = [
 
   {
     name: 'Alexandra Cardenas',
-
+    slug: 'alexandra-cardenas',
     imgProfile: '/static/images/artist/AlexandraCardenas.jpg',
     imgDesc: '/static/images/artist/AlexandraCardenas_imgDesc.jpg',
     imgDescBit: '/static/images/artist/AlexandraCardenas_imgDescBit.jpg',
     website: 'https://cargocollective.com/tiemposdelruido/Alexandra-Cardenas',
     social: [{ twitter: 'https://twitter.com/tiemposdelruido' }, {github: ''}] ,
     twitterName: '@tiemposdelruido',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'TidalCycles x Hydra A/V',
     programmeTitle2: 'Hydra x TidalCycles',
     programmeDesc: `Alexandra Cardenas aka Tiemposdelruido live coding 
@@ -464,14 +465,14 @@ const dataArtists = [
 
   {
     name: 'Digital Selves',
-
+    slug: 'digital-selves',
     imgProfile: '/static/images/artist/DigitalSelves.jpg',
     imgDesc: '/static/images/artist/DigitalSelves_imgDesc.jpg',
     imgDescBit: '/static/images/artist/DigitalSelves_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/dgtlslvs' }, {github: 'http://lwlsn.github.io'}] ,
     twitterName: '@dgtlslvs',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: 'tidal cycles + some hardware',
@@ -489,14 +490,14 @@ const dataArtists = [
 
   {
     name: 'innocent',
-
+    slug: 'innocent',
     imgProfile: '/static/images/artist/innocent.jpg',
     imgDesc: '/static/images/artist/innocent_imgDesc.jpg',
     imgDescBit: '/static/images/artist/innocent_imgDescBit.jpg',
     website: '',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: 'innocent',
     programmeTitle2: '',
     programmeDesc: `A melodic fusion of beats and sounds influenced 
@@ -514,14 +515,14 @@ const dataArtists = [
 
   {
     name: 'Garlic Hug',
-
+    slug: 'garlic-hug',
     imgProfile: '/static/images/artist/GarlicHug.jpg',
     imgDesc: '/static/images/artist/GarlicHug_imgDesc.jpg',
     imgDescBit: '/static/images/artist/GarlicHug_imgDescBit.jpg',
     website: '',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: `A new duo collaboration between Alessandro Altavilla 
@@ -548,14 +549,14 @@ const dataArtists = [
 
   {
     name: 'Akihiro Kubota',
-
+    slug: 'akihiro-kubota',
     imgProfile: '/static/images/artist/AkihiroKubota.jpg',
     imgDesc: '/static/images/artist/AkihiroKubota_imgDesc.jpg',
     imgDescBit: '/static/images/artist/AkihiroKubota_imgDescBit.jpg',
     website: 'http://hemokosa.com',
     social: [{ twitter: 'https://twitter.com/hemokosa' }, {github: ''}] ,
     twitterName: '@hemokosa',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'The Well-Tuned Livecoding Piano',
     programmeTitle2: 'Live Coding and a New Kind of Improvisation',
     programmeDesc: 'Live Coding Improvisation using Tidal-midi and Pianoteq (Physically Modelled Acoustic Piano)',
@@ -581,14 +582,14 @@ const dataArtists = [
 
   {
     name: 'Livedog, Inc.',
-
+    slug: 'livedog',
     imgProfile: '/static/images/artist/LivedogInc.jpg',
     imgDesc: '/static/images/artist/LivedogInc_imgDesc.jpg',
     imgDescBit: '/static/images/artist/LivedogInc_imgDescBit.jpg',
     website: 'http://composerprogrammer.com/',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: 'Generative music will result from an unlikely attempt to prove the Riemann Hypothesis.',
@@ -606,14 +607,14 @@ const dataArtists = [
 
   {
     name: 'Uiae',
-
+    slug: 'uiae',
     imgProfile: '/static/images/artist/Uiae.jpg',
     imgDesc: '/static/images/artist/Uiae_imgDesc.jpg',
     imgDescBit: '/static/images/artist/Uiae_imgDescBit.jpg',
     website: 'https://uiae.de/',
     social: [{ twitter: 'https://twitter.com/uiae' }, {github: ''}] ,
     twitterName: '@uiae',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: 'Robot Folk Dance Experience',
     programmeTitle2: '',
     programmeDesc: `The Robot Folk Dance Experience is an improvisation 
@@ -637,14 +638,14 @@ const dataArtists = [
 
   {
     name: 'co(n)de Zero',
-
+    slug: 'conde-zero',
     imgProfile: '/static/images/artist/condeZero.jpg',
     imgDesc: '/static/images/artist/condeZero_imgDesc.jpg',
     imgDescBit: '/static/images/artist/condeZero_imgDescBit.jpg',
     website: 'https://alejandroalbornoz.wordpress.com/conde-zero/',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: 'Textural manipulation of vocal samples, underpinned with minimal glitchy polyrhythms...',
@@ -664,14 +665,14 @@ const dataArtists = [
 
   {
     name: 'Dimitris Kyriakoudis',
-
+    slug: 'dimitris-kyriakoudis',
     imgProfile: '/static/images/artist/DimitrisKyriakoudis.jpg',
     imgDesc: '/static/images/artist/DimitrisKyriakoudis_imgDesc.jpg',
     imgDescBit: '/static/images/artist/DimitrisKyriakoudis_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/InfiniteMonkey9' }, {github: ''}] ,
     twitterName: '@InfiniteMonkey9',
-    programme: [{programme1: 'algorave'}, {programme2:'toplabmoot'}],
+    programme: [{title: 'algorave'}, {title:'toplabmoot'}],
     programmeTitle: 'lnfiniteMonkeys',
     programmeTitle2: 'TimeLines: Music as (Simple) Mathematical Functions of Time',
     programmeDesc: `lnfiniteMonkeys are at it again, typing their nonsense to no end. 
@@ -711,14 +712,14 @@ const dataArtists = [
 
   {
     name: 'BIT-PRINT',
-
+    slug: 'bit-print',
     imgProfile: '/static/images/artist/BIT-PRINT.jpg',
     imgDesc: '/static/images/artist/BIT-PRINT_imgDesc.jpg',
     imgDescBit: '/static/images/artist/BIT-PRINT_imgDescBit.jpg',
     website: '',
     social: [{ twitter: 'https://twitter.com/evanraskob' }, {github: 'https://github.com/pixelpusher/liveprinter'}] ,
     twitterName: '@evanraskob',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: `BITLIP (the livecoder) is using LivePrinter 
@@ -741,14 +742,14 @@ const dataArtists = [
 
   {
     name: 'Yaxu',
-
+    slug: 'yaxu',
     imgProfile: '/static/images/artist/Yaxu.jpg',
     imgDesc: '/static/images/artist/Yaxu_imgDesc.jpg',
     imgDescBit: '/static/images/artist/Yaxu_imgDescBit.jpg',
     website: 'http://slab.org/',
     social: [{ twitter: 'https://twitter.com/yaxu' }, {github: ''}] ,
     twitterName: '@yaxu',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: '',
     programmeTitle2: '',
     programmeDesc: 'Bringing it back to basics with from-scratch, broken, live coded, minimal techno.',
@@ -769,14 +770,14 @@ const dataArtists = [
 
   {
     name: 'Shelly Knotts and Nick Collins',
-
+    slug: 'shelly-knotts-n-nick-collins',
     imgProfile: '/static/images/artist/ShellyKnotts.jpg',
     imgDesc: '/static/images/artist/ShellyKnotts_imgDesc.jpg',
     imgDescBit: '/static/images/artist/ShellyKnotts_imgDescBit.jpg',
     website: '',
     social: [{ twitter: '' }, {github: ''}] ,
     twitterName: '',
-    programme: [{programme1: 'algorave'}, {programme2:''}],
+    programme: [{title: 'algorave'}],
     programmeTitle: 'Experiments in Web Audio Musical Machine Listening',
     programmeTitle2: '',
     programmeDesc: `In which two researchers within a large funded grant* 

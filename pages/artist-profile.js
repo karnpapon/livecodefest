@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import Link from 'next/link'
 import Head from 'next/head';
 import Main from '<Layouts>/main'
@@ -7,7 +7,8 @@ import colors from '<Styles>/colors'
 import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import { Icon } from '<UI>'
-
+import { dataArtists } from '<DATA>'
+import renderHTML from 'react-render-html';
 import Footer from '<Features>/Footer'
 
 import Programme from './programme'
@@ -23,7 +24,8 @@ const sectionText = fonts.sectionText
 
 class ArtistProfile extends React.Component {
   static async getInitialProps({ query, res }) {
-    return true
+    let querySlug = query
+    return querySlug
   }
 
   constructor(props) {
@@ -43,6 +45,9 @@ class ArtistProfile extends React.Component {
 
   render() {
 
+    
+    const artist = dataArtists.filter(item => item.slug == this.props.slug)[0]
+
     const { show } = this.state
     const { setInfoHide, setInfoShow } = this
 
@@ -59,40 +64,39 @@ class ArtistProfile extends React.Component {
 
           <SectionHeader>
             <Link href="/">
-              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
+              {/* <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} /> */}
+              <IconHeader>
+                <img src="/static/images/logo-copy@3x.png"/>
+              </IconHeader>
             </Link>
           </SectionHeader>
-          <EventDate> Chiho Oka and Renick Bell </EventDate>
+          <EventDate> { artist.name } </EventDate>
 
           <ImageWrapper>
-            <TitleImg style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}/>
-            <TitleImgBW style={{ backgroundImage: `url("static/images/artistprofile-bit.jpg")` }}/>
+            <TitleImg style={{ backgroundImage: `url(${artist.imgDesc})` }}/>
+            <TitleImgBW style={{ backgroundImage: `url(${artist.imgDescBit})` }}/>
           </ImageWrapper>
 
           <DetailBox> 
-            <DetailText>Lucy Cheesman is a major live code agitator in Sheffield, 
-              performing widely solo as Heavy Lifting and in a diversity of bands 
-              including TYPE and the Trve Yorkshire Kvlt Ensemble. 
-              She also co-runs the SONA network for women and girls in music technology 
-              and the monthly(ish) Tidal club meetings in Sheffield.
-            </DetailText>
-            <iframe 
+          <DetailText>{renderHTML( artist.descriptionDetail )}</DetailText>
+            {/* <iframe 
             width="100%" 
             height="315" 
             src="https://www.youtube.com/embed/MkU3CVCYyNU" 
             frameBorder="0" 
             allow="autoplay; encrypted-media" 
-            />
+            /> */}
             <DetailText>
-              <Website>https://heavy-lifting.github.io/</Website>
-              <Social>Twitter: @abelstaites</Social>
+              <Website>{artist.website}</Website>
+              <Social>Twitter: {artist.social.twitter !== ''? artist.social.twitter:'-'}</Social>
+              <Social>Github: {artist.social.github !== ''? artist.social.github:'-'}</Social>
             </DetailText>
           </DetailBox>
              
         </MainBackground>
 
           {/* <CardDesc/> */}
-          <AppearsIn/>
+          <AppearsIn artist={artist}/>
         <CollabAndSponsor />
       </Main> 
     )
@@ -125,10 +129,12 @@ const DetailBox = styled.div`
   margin-bottom: 100px;
 `
 
-const DetailText = styled.p`
+const DetailText = styled.div`
   font-family: ${ fonts.systemRegular};
   font-size: 16px;
   line-height: 1.4;
+
+  a{ color: black;}
 `
 
 const Website = styled.p`
@@ -203,6 +209,8 @@ const IconHeader = styled.div`
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+
+  img{ width: inherit;}
 
   @media (max-width: 767px) {
     position: relative;

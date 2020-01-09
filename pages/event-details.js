@@ -8,6 +8,7 @@ import fonts from '<Styles>/fonts'
 import Grid from '<Features>/Grid'
 import { Icon } from '<UI>'
 import StackGrid from "react-stack-grid";
+import { dataEvents, dataArtists } from '<DATA>'
 
 import Footer from '<Features>/Footer'
 
@@ -45,6 +46,19 @@ class EventDetails extends React.Component {
     const { show, isOpen } = this.state
     const { setInfoHide, setInfoShow } = this
     const { setCardClose, setCardOpen } = this
+    const { slug } = this.props.url.query
+    let artistProgramme = []
+
+    const event = dataEvents.filter(item => item.programme == slug)[0]
+
+
+    dataArtists.forEach(item => {
+      item.programme.some(type => {
+        if(type.title == slug){
+          artistProgramme.push(item)
+        } 
+      })
+    })
 
     return (
       <Main>
@@ -73,32 +87,26 @@ class EventDetails extends React.Component {
 
           <SectionHeader>
             <Link href="/">
-              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
+              <IconHeader style={{ backgroundImage: `url("../static/images/logo-copy@3x.png")` }} />
             </Link>
           </SectionHeader>
 
           <ImageWrapper>
             <ProgrammeTitleBox> 
-              <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
+              <TitleImg style={{ backgroundImage: `url("../static/images/computer.jpg")` }} />
               <DetailWrapper>
-                <ProgrammeDateText>1 September 2018, 8 pm - 2 am</ProgrammeDateText>
-                <ProgrammeTitleText> Algorave </ProgrammeTitleText>
+                <ProgrammeDateText>{ event.date }</ProgrammeDateText>
+                <ProgrammeTitleText> {event.title} </ProgrammeTitleText>
               </DetailWrapper>
             </ProgrammeTitleBox>
             <TitleBwWrapper>
               <a target="_blank" href="https://algorave.com"/>
-              <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
+              <TitleImgBW style={{ backgroundImage: `url("../static/images/logo-algorave.png")` }} />
             </TitleBwWrapper>
           </ImageWrapper>
 
           <DetailBox>
-            <DetailText>Probably the world's first two-room Algorave, 
-              with an international line-up of top notch live coders and algorithmic producers, 
-              including Renick Bell + Chiho Oka, Atsushi Tadokoro, Akihiro Kubota, 
-              Linux Lewis, Yaxu, Alexandra Cardenas, LiveDog Inc., 
-              Heavy Lifting, ALGOBABEZ, Qirky, Neil C Smith, Innocent, 
-              Thorsten Sideboard, Alejandro Albornoz, tedthetrumpet, Digital Selves + more ..
-            </DetailText>
+            <DetailText>{ event.detail}</DetailText>
           </DetailBox>
 
           <GridWrapper>
@@ -109,29 +117,27 @@ class EventDetails extends React.Component {
               gutterHeight={20}
             >
               { 
-                Array.from(new Array(24)).map(( item, index ) => 
+                artistProgramme.map(( artist, index ) => 
                 <ArtistCardWrapper key={ index }>
                     <ArtistDetailCardHeadBar> 
-                      Programme name
+                      { event.title }
                     </ArtistDetailCardHeadBar>
                     <ArtistInProgramme >
                     <NameAndProfileImgWrapper>
-                      <Link href="/artist-profile">
+                      <Link href={ `/artist-profile/${artist.slug}` }>
                       <ArtistNameBox>
-                        <ArtistName>Name's Artist</ArtistName> 
+                        <ArtistName>{ artist.name }</ArtistName> 
                         <IconWrapper>
                           <Icon name="arrow" className="hashtag-arrow" />
                         </IconWrapper> 
                       </ArtistNameBox>
                       </Link>
-                      <CardArtistProfile style={{ backgroundImage: `url("static/images/artistprofile.jpg")` }}/>
+                      <CardArtistProfile style={{ backgroundImage: `url(${artist.imgProfile})` }}/>
                     </NameAndProfileImgWrapper>
 
                         <CardArtistDetail>
                           <ProgrammeTitle> Programme Title </ProgrammeTitle>
-                          Probably the world's first two-room Algorave, 
-                          with an international line-up of top notch live coders and algorithmic producers, 
-                          including Renick Bell + Chiho Oka, Atsushi Tadokoro, Akihiro Kubota, 
+                          { artist.programmeDesc }
                         </CardArtistDetail>
                     </ArtistInProgramme>
                 </ArtistCardWrapper>

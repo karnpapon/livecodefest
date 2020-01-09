@@ -2,6 +2,7 @@ const dataEvents = [
   {
     title: 'Beginners\' Workshop',
     slug: 'beginners-workshop',
+    programme: 'workshop',
     date: '1 September 2018, 11 am - 4 pm',
     description: 'For Women and Non-Binary people',
     location: 'Access Space Labs',
@@ -20,6 +21,7 @@ const dataEvents = [
   {
     title: 'Visualists meetup',
     slug: 'visualists-meetup',
+    programme: 'meetup',
     date: '1 September 2018, 11 am - 4 pm',
     description: 'Live code pixelists',
     location: 'Access Space',
@@ -47,6 +49,7 @@ const dataEvents = [
     slug: 'algorave',
     date: '1 September 2018, 8 pm - 2 am',
     description: 'Live code pixelists',
+    programme: 'algorave',
     location: 'DINA',
     locationDetail: '32A-34 Cambridge St, Sheffield S1 4HP',
     booking: 'Tickets now available',
@@ -85,6 +88,7 @@ const dataEvents = [
     date: '1 - 3 September 2018',
     description: 'Livecoding talks, demos and workshops',
     location: 'Access Space',
+    programme: 'toplabmoot',
     locationDetail: '3-7 Sidney St, Sheffield S1 4RG',
     booking: 'Tickets now available',
     bookingLink: 'https://tickets.partyforthepeople.org/events/3823-toplap-moot',

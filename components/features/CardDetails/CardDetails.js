@@ -36,6 +36,7 @@ class CardDetails extends React.Component {
     const { setCardClose, setCardOpen, setCardDescOpen } = this
     const { isOpen, isCardDescOpen } = this.state
     const { eventInfo, seemore } = this.props
+
     const { 
       date, 
       title, 
@@ -46,6 +47,7 @@ class CardDetails extends React.Component {
       locationDetail, 
       testimonial,
       slug,
+      programme,
       bookingLink } = eventInfo
 
     return (
@@ -57,11 +59,11 @@ class CardDetails extends React.Component {
               <DescInfo>{ description }</DescInfo>
             <Collapse isOpened={isOpen} springConfig={{ stiffness: 200 }}  >
                 <DescInfoCollapsed>{ detail}</DescInfoCollapsed>
-              <CardDesc show={isOpen} programme={slug}/>
+              <CardDesc show={isOpen} programme={programme}/>
                 <DescInfoCollapsed>{renderHTML( testimonial )}</DescInfoCollapsed>
               {seemore ? (
                 <HashtagWrapper>
-                  <Link href="/event-details">
+                  <Link href={ `/event-details/${programme}` }>
                     <Hashtag>see more</Hashtag>
                   </Link>
                   <IconWrapper>
