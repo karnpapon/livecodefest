@@ -23,7 +23,8 @@ const orangeVeryLight = colors.orangeVeryLight
 
 class EventDetails extends React.Component {
   static async getInitialProps({ query, res }) {
-    return true
+    let querySlug = query
+    return querySlug
   }
 
   constructor(props) {
@@ -46,7 +47,7 @@ class EventDetails extends React.Component {
     const { show, isOpen } = this.state
     const { setInfoHide, setInfoShow } = this
     const { setCardClose, setCardOpen } = this
-    const { slug } = this.props.url.query
+    const { slug } = this.props
     let artistProgramme = []
 
     const event = dataEvents.filter(item => item.programme == slug)[0]
