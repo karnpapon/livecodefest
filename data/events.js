@@ -115,4 +115,7 @@ dataEvents.forEach((item, index) => {
 
 
 
-export default  ( dataEventName, dataEvents ) 
+//export default  ( dataEventName, dataEvents ) 
+
+
+module.exports = dataEvents

@@ -804,4 +804,7 @@ const dataArtists = [
 
 
 
-export default  ( dataArtists )  
+// export default  ( dataArtists )  
+
+
+module.exports = dataArtists
