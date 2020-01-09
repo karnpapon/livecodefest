@@ -33,7 +33,7 @@ class Programme extends React.Component {
                   <CardDetails 
                     eventInfo={item} 
                     key={index} 
-                    seemore={ item.slug ==  'toplab-moot' || item.slug == 'algorave' ? true: false}
+                    seemore={ item.slug ==  'toplabmoot' || item.slug == 'algorave' ? true: false}
                   /> 
                 )
               }

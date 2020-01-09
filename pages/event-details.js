@@ -88,13 +88,13 @@ class EventDetails extends React.Component {
 
           <SectionHeader>
             <Link href="/">
-              <IconHeader style={{ backgroundImage: `url("../static/images/logo-copy@3x.png")` }} />
+              <IconHeader style={{ backgroundImage: `url("static/images/logo-copy@3x.png")` }} />
             </Link>
           </SectionHeader>
 
           <ImageWrapper>
             <ProgrammeTitleBox> 
-              <TitleImg style={{ backgroundImage: `url("../static/images/computer.jpg")` }} />
+              <TitleImg style={{ backgroundImage: `url("static/images/computer.jpg")` }} />
               <DetailWrapper>
                 <ProgrammeDateText>{ event.date }</ProgrammeDateText>
                 <ProgrammeTitleText> {event.title} </ProgrammeTitleText>
@@ -102,7 +102,7 @@ class EventDetails extends React.Component {
             </ProgrammeTitleBox>
             <TitleBwWrapper>
               <a target="_blank" href="https://algorave.com"/>
-              <TitleImgBW style={{ backgroundImage: `url("../static/images/logo-algorave.png")` }} />
+              <TitleImgBW style={{ backgroundImage: `url("static/images/logo-algorave.png")` }} />
             </TitleBwWrapper>
           </ImageWrapper>
 

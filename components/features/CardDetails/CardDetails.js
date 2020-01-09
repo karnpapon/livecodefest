@@ -63,7 +63,7 @@ class CardDetails extends React.Component {
                 <DescInfoCollapsed>{renderHTML( testimonial )}</DescInfoCollapsed>
               {seemore ? (
                 <HashtagWrapper>
-                  <Link href={ `/event-details/${programme}` }>
+                  <Link href={ `/event-details/${slug}` }>
                     <Hashtag>see more</Hashtag>
                   </Link>
                   <IconWrapper>

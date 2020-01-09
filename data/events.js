@@ -84,7 +84,7 @@ const dataEvents = [
   },
   {
     title: 'TOPLAB moot',
-    slug: 'toplab-moot',
+    slug: 'toplabmoot',
     date: '1 - 3 September 2018',
     description: 'Livecoding talks, demos and workshops',
     location: 'Access Space',
